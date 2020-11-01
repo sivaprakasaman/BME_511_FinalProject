@@ -1,4 +1,5 @@
 \documentclass[9pt]{article}
+%\usepackage{plain}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -25,23 +26,23 @@
 
 Despite extensive investigation of both perception and coding of Temporal Fine Structure (TFS) and Envelope (ENV) and how they play a role in speech intellibility and discrimination, \textit{music} still remains somewhat an enigma. Though multiple studies have attempted to study music intelligibility and appreciation by creating music-music and music-noise chimaeras, current work consists of studies that are primarily behavioral. Although these studies examine the roles of TFS and ENV in music encoding, their implications may be influenced by higher-level processing beyond the auditory periphery or by auditory filtering effects present in the cochlea. 
 
-It is important to study how music is encoded independent of central processing and the relevance of auditory filtering effects in order to drive better design of hearing-assistive devices, such as cochlear implants. It has been established that cochlear implant users, despite developing substantial conversational proficiency, struggle to appreciate music through their implants [Citation (HENG)]. To objectively study the encoding and filtering done by the auditory periphery, auditory nerve studies may be utilized.
+It is important to study how music is encoded independent of central processing and the relevance of auditory filtering effects in order to drive better design of hearing-assistive devices, such as cochlear implants. It has been established that cochlear implant users, despite developing substantial conversational proficiency, struggle to appreciate music through their implants \cite{heng_impaired_2011}. To objectively study the encoding and filtering done by the auditory periphery, auditory nerve studies may be utilized.
 
 Advances in modeling and characterization of TFS and ENV using spike-train analyses methods such as the 2018 update to the Zilany et al. model of the auditory periphery paired with alternating-polarity Peristimulus Time Histograms (apPSTHs) allow for to better investigation of music coding through simulation. \textbf{I propose a model-based investigation of TFS and ENV contributions to coding of a specific musical attribute, \textit{timbre}, and how these contributions are affected by hearing impairment}.   
 
 \item \textbf{\underline{Data Set:}}
 
-The stimuli that I plan to use will be derived from \textbf{sound samples from the Philharmonia Orchestra} [CITATION]. This sound sample library has thousands of neatly categorized and concise recordings that span the instrumental range of the standard orchestra, over several pitches, articulations, and expressions. Music-noise chimaeras will be created from a select subset of these recordings, using chimaerizers similar to those used in a previous study [CITATION (SMITH)]. 
+The stimuli that I plan to use will be derived from \textbf{sound samples from the Philharmonia Orchestra} \cite{noauthor_sound_nodate}. This sound sample library has thousands of neatly categorized and concise recordings that span the instrumental range of the standard orchestra, over several pitches, articulations, and expressions. Music-noise chimaeras will be created from a select subset of these recordings, using chimaerizers similar to those used in a previous study \cite{smith_chimaeric_2002}. 
 
 \item \textbf{\underline{Signal Processing Algorithms:}}
 
-From prior spectral and envelope analysis of timbral characteristics, it is clear timbre is multifactorial and has dependence on both TFS/ENV characteristics of the sound [citation-Lee]. The proposed project intends to further expand our understanding of this relationship from a neural coding standpoint. 
+From prior spectral and envelope analysis of timbral characteristics, it is clear timbre is multifactorial and has dependence on both TFS/ENV characteristics of the sound \cite{lee_timbre_2020}. The proposed project intends to further expand our understanding of this relationship from a neural coding standpoint. 
 
-This project requires a good understanding of signal processing ideas and tools covered in this course including the Hilbert analytic signal and spectral analysis. Furthermore, comprehending the advantages outlined by Parida et al. requires learning the limitations of correlogram-based metrics used by Heinz et al. when investigating speech-noise chimaeras using a prior version of the same Zilany model [CITE]. I will integrate prior knowledge of music, audio engineering, and medicine with a computational model and spike-train analysis.   
+This project requires a good understanding of signal processing ideas and tools covered in this course including the Hilbert analytic signal and spectral analysis. Furthermore, comprehending the advantages outlined by Parida et al. requires learning the limitations of correlogram-based metrics used by Heinz et al. when investigating speech-noise chimaeras using a prior version of the same Zilany model \cite{parida_spectrally_2020}. I will integrate prior knowledge of music, audio engineering, and medicine with a computational model and spike-train analysis.   
 
 \item \textbf{\underline{Relevant Literature:}}
 
-\textbf{My project depends heavily on work by Smith, Bruce, and Parida et al.[CITE]}. The chimaerizers will come from Smith, the auditory nerve model from Bruce, and the apPSTH TFS/ENV  methods from Parida. Additionally, I have drawn and will draw inspiration from other papers that have investigated coding of musical ideas and tonal languages from perceptual and neurophysiological perspectives [CITE].
+\textbf{My project depends heavily on work by Smith, Bruce, and Parida et al. \cite{smith_chimaeric_2002,bruce_phenomenological_2018,parida_spectrally_2020}}. The chimaerizers will come from Smith, the auditory nerve model from Bruce, and the apPSTH TFS/ENV  methods from Parida. Additionally, I have drawn and will draw inspiration from other papers that have investigated coding of musical ideas and tonal languages from perceptual and neurophysiological perspectives \cite{manno_uncertain_2019,arnoldner_speech_2007,xu_relative_2003,riquimaroux_perception_2006,li_improved_2012,bidelman_auditory-nerve_2011}.
 
 \item \textbf{\underline{Feasibility Issues:}}
 
@@ -58,9 +59,9 @@ The success of this project highly depends on smooth integration of the aforemen
 After outlining this project, it feels quite ambitious (maybe it isn't?), but interesting. So feel free to suggest ways to ``tone it down'' if necessary. 
 \end{enumerate}
 
+\bibliographystyle{unsrt}
 
-
-
+\bibliography{references}{}
 
 
 
