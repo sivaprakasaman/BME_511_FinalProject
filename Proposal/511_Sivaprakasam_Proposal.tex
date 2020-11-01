@@ -10,7 +10,7 @@
 \usepackage{amsfonts}
 \usepackage{epstopdf}
 \usepackage[table]{xcolor}
-\usepackage[a4paper, total={6in, 10in}]{geometry}
+\usepackage[a4paper, total={7.4in, 10in}]{geometry}
 \usepackage{enumitem}
 \usepackage[export]{adjustbox}
 
@@ -18,13 +18,51 @@
 \begin{center}
 {\Large \textbf{BME 0511 Final Project Proposal | Andrew Sivaprakasam}}
 \end{center}
+\vspace{.25em}
+\begin{enumerate}
 
-Despite extensive investigation of both perception and coding of Temporal Fine Structure (TFS) and Envelope (ENV) and how they play a role in speech intellibility and discrimination, there is a commonly presented stimulus whose coding still remains somewhat an enigma: \textit{music}. Though multiple studies have attempted to study music intelligibility and appreciation by creating music-music and music-noise chimaeras, the current work consists of studies that are primarily behavioral. Although these studies shed light on the roles of TFS and ENV in music encoding, their implications may be influenced by higher-level processing beyond the auditory periphery or by auditory filtering effects present in the cochlea. 
+\item \textbf{\underline{Scientific Question/Biomedical Application:}}
 
-It is important to study how music is encoded independent of central processing and the relevance of auditory filtering effects in order to drive better design of hearing-assistive devices, such as cochlear implants. It has been well-established that cochlear implant users, despite developing substantial conversational proficiency, struggle to appreciate music through their implants [Citation]. To objectively study the encoding and filtering done by the auditory periphery, auditory nerve studies may be utilized.
+Despite extensive investigation of both perception and coding of Temporal Fine Structure (TFS) and Envelope (ENV) and how they play a role in speech intellibility and discrimination, \textit{music} still remains somewhat an enigma. Though multiple studies have attempted to study music intelligibility and appreciation by creating music-music and music-noise chimaeras, current work consists of studies that are primarily behavioral. Although these studies examine the roles of TFS and ENV in music encoding, their implications may be influenced by higher-level processing beyond the auditory periphery or by auditory filtering effects present in the cochlea. 
 
-Advances in modeling and characterization of TFS and ENV using spike-train analyses methods such as alternating-polarity Peristimulus Time Histograms (apPSTHs) may allow us to better understand music coding. 
+It is important to study how music is encoded independent of central processing and the relevance of auditory filtering effects in order to drive better design of hearing-assistive devices, such as cochlear implants. It has been established that cochlear implant users, despite developing substantial conversational proficiency, struggle to appreciate music through their implants [Citation (HENG)]. To objectively study the encoding and filtering done by the auditory periphery, auditory nerve studies may be utilized.
 
- 
+Advances in modeling and characterization of TFS and ENV using spike-train analyses methods such as the 2018 update to the Zilany et al. model of the auditory periphery paired with alternating-polarity Peristimulus Time Histograms (apPSTHs) allow for to better investigation of music coding through simulation. \textbf{I propose a model-based investigation of TFS and ENV contributions to coding of a specific musical attribute, \textit{timbre}, and how these contributions are affected by hearing impairment}.   
+
+\item \textbf{\underline{Data Set:}}
+
+The stimuli that I plan to use will be derived from \textbf{sound samples from the Philharmonia Orchestra} [CITATION]. This sound sample library has thousands of neatly categorized and concise recordings that span the instrumental range of the standard orchestra, over several pitches, articulations, and expressions. Music-noise chimaeras will be created from a select subset of these recordings, using chimaerizers similar to those used in a previous study [CITATION (SMITH)]. 
+
+\item \textbf{\underline{Signal Processing Algorithms:}}
+
+From prior spectral and envelope analysis of timbral characteristics, it is clear timbre is multifactorial and has dependence on both TFS/ENV characteristics of the sound [citation-Lee]. The proposed project intends to further expand our understanding of this relationship from a neural coding standpoint. 
+
+This project requires a good understanding of signal processing ideas and tools covered in this course including the Hilbert analytic signal and spectral analysis. Furthermore, comprehending the advantages outlined by Parida et al. requires learning the limitations of correlogram-based metrics used by Heinz et al. when investigating speech-noise chimaeras using a prior version of the same Zilany model [CITE]. I will integrate prior knowledge of music, audio engineering, and medicine with a computational model and spike-train analysis.   
+
+\item \textbf{\underline{Relevant Literature:}}
+
+\textbf{My project depends heavily on work by Smith, Bruce, and Parida et al.[CITE]}. The chimaerizers will come from Smith, the auditory nerve model from Bruce, and the apPSTH TFS/ENV  methods from Parida. Additionally, I have drawn and will draw inspiration from other papers that have investigated coding of musical ideas and tonal languages from perceptual and neurophysiological perspectives [CITE].
+
+\item \textbf{\underline{Feasibility Issues:}}
+
+The success of this project highly depends on smooth integration of the aforementioned work. I will ensure this integration is feasible early on (within the first week of the project). Additionally, even if the same tone (for example A4, $F_{0} = $ 440 Hz) is studied across multiple instruments, there may be artifacts and onset/offset characteristics that affect the stimulus response that will need to be investigated and either acknowledged or corrected for. 
+
+\item \textbf{\underline{Grading: }}
+
+\textbf{B Grade: }I can demonstrate successful integration of the Philharmonia sound samples/created chimaeras with the BEZ2018 model and the apPSTH analysis, exemplified by a meaningful conclusion on how TFS/ENV contributions to timbral coding are/are not affected by hearing loss in relatively pure tone sounds (i.e. no articulation like dynamic changes/pizzacato/accenting) over a few different instruments. 
+
+\textbf{A Grade: }I can expand the above to incorporate TFS/ENV contributions to timbral coding in sounds with articulation. My hypothesis is that coding of articulation characteristics will be highly dependent on ENV contributions while variations in timbral characteristics from instrument to instrument will be dependent mostly on TFS contributions.
+
+\item \textbf{\underline{Other relevant issues: }}
+
+After outlining this project, it feels quite ambitious (maybe it isn't?), but interesting. So feel free to suggest ways to ``tone it down'' if necessary. 
+\end{enumerate}
+
+
+
+
+
+
+
 
 \end{document}
