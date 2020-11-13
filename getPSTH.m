@@ -1,4 +1,4 @@
-addpath('Sound_Samples/')
+addpath('Sound_Samples')
 addpath('Chimera code and WAV files')
 addpath('BEZ2018model')
 
