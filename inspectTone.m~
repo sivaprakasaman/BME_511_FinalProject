@@ -7,10 +7,12 @@ addpath('Functions')
 
 %for Part A:
 %instruments = ["banjo","bassoon","cello","clarinet","flute","oboe","trumpet","saxophone","viola","violin"];
-%instruments = ["violin","viola","cello"];
+%instruments = ["violin","viola","cello"]; %String subset
+%instruments = ["banjo","clarinet","flute","trumpet","violin"];
+instruments = ["banjo"];
 pitch = 'A4';
 cond = 'normal';
-timewindow = [0,1.00];
+timewindow = [0,1.0];
 nfft = 2048;
 
 for i = 1:length(instruments)
@@ -25,8 +27,12 @@ for i = 1:length(instruments)
     title(instruments(i));
     hold off
     sound(sig(timewindow(1)*fs+1:timewindow(2)*fs),fs);
+    
     pause(1);
 end
 
 legend(instruments)
 title("Frequency Response of A4 on Multiple Instruments");
+xlim([0 max(DFTfreq_Hz)]);
+
+getSpect(sig,40,fs,65,'mag',instruments(i))
