@@ -2,6 +2,7 @@ function [] = getSpect(sig,BW,Fs,DR,spectType,sigName)
 %Modified version of spectrogram_BW_DR.m from Heinz
 %Added an FFT for better visualization of peaks 
 
+%TODO: CLEAN UP!!
 
 % Input Parameters
 %   sig: waveform to be analyzed

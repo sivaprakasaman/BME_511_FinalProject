@@ -33,6 +33,7 @@ for i = 1:length(instruments)
     cd ../
     close all;
     pause(1);
+    
 end
 
 % legend(instruments)
