@@ -9,7 +9,6 @@ mexANmodel
 cd ../
 
 clear all; clc
-close all
 
 [test_sig test_fs]= audioread('violin_A4_normal.mp3');
 
@@ -17,7 +16,7 @@ close all
 
 %TODO: Read more on these params
 % model parameters
-CF    = 440;   % CF in Hz; %gonna need to change this
+CF    = 1e3;   % CF in Hz; %gonna need to change this
 spont = 70;   % spontaneous firing rate %SATYA CHANGED TO 70/s
 tabs   = 0.6e-3; % Absolute refractory period
 trel   = 0.6e-3; % Baseline mean relative refractory period
@@ -36,7 +35,7 @@ rt = 2.5e-3; % rise/fall time in seconds
 
 %Modify to work with alternating polarities
 
-nrep = 25; % number of stimulus repetitions (e.g., 50); 
+nrep = 100; % number of stimulus repetitions (e.g., 50); 
 psthbinwidth = 1e-4; % binwidth in seconds;
 psthbins = round(psthbinwidth*Fs);  % number of psth bins per psth bin
 
@@ -75,20 +74,13 @@ tt= 0:1/Fs:(length(psth_pos)-1)/Fs;
 px = zeros(size(psth_pos));
 px(1:length(pin)) = pin;
 
-
-subplot(2,1,1);
 hold on
-plot(tvect*1e3, Psth_pos/nrep/psthbinwidth) % Plot of estimated mean spike rate
-plot(tvect*1e3, -Psth_neg/nrep/psthbinwidth) % Plot of estimated mean spike rate
-hold off
+bar(tvect*1e3, Psth_pos/nrep/psthbinwidth,'histc') % Plot of estimated mean spike rate
+bar(tvect*1e3, -Psth_neg/nrep/psthbinwidth,'histc') % Plot of estimated mean spike rate
 
 ylabel('Firing Rate (/s)')
 xlabel('Time (ms)')
 xlim(ceil(tt([1 end])*1e3))
 title('apPSTH')
 
-subplot(2,1,2);
-plot(tt,px)
-ylabel('Pressure (Pa)')
-xlabel('Time (ms)')
-title('AN Reponse to A4 - Violin | CF = 440 Hz')
+

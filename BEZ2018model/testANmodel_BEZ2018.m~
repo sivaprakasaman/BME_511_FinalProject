@@ -1,7 +1,5 @@
 clear all; clc
 
-[test_sig test_fs]= audioread('violin_A4_normal.mp3');
-
 % model parameters
 CF    = 1e3;   % CF in Hz;
 spont = 100;   % spontaneous firing rate
@@ -17,7 +15,7 @@ implnt = 0;     % "0" for approximate or "1" for actual implementation of the po
 stimdb = 60; % stimulus intensity in dB SPL
 F0 = CF;     % stimulus frequency in Hz
 Fs = 100e3;  % sampling rate in Hz (must be 100, 200 or 500 kHz)
-T  = 1;  % stimulus duration in seconds
+T  = length(test_sig)/test_fs;  % stimulus duration in seconds
 rt = 2.5e-3; % rise/fall time in seconds
 % ondelay = 10e-3;
 
