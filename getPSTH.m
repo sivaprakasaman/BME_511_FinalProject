@@ -17,7 +17,7 @@ close all
 
 %TODO: Read more on these params
 % model parameters
-CF    = 440;   % CF in Hz; %gonna need to change this
+CF    = 500;   % CF in Hz; %gonna need to change this
 spont = 70;   % spontaneous firing rate %SATYA CHANGED TO 70/s
 tabs   = 0.6e-3; % Absolute refractory period
 trel   = 0.6e-3; % Baseline mean relative refractory period
@@ -36,7 +36,7 @@ rt = 2.5e-3; % rise/fall time in seconds
 
 %Modify to work with alternating polarities
 
-nrep = 25; % number of stimulus repetitions (e.g., 50); 
+nrep = 100; % number of stimulus repetitions (e.g., 50); 
 psthbinwidth = 1e-4; % binwidth in seconds;
 psthbins = round(psthbinwidth*Fs);  % number of psth bins per psth bin
 
@@ -64,6 +64,21 @@ vihc_neg = model_IHC_BEZ2018(-pin,CF,nrep,dt,4*T,cohc,cihc,species);
 Psth_pos = sum(reshape(psth_pos,psthbins,length(psth_pos)/psthbins)); %
 Psth_neg = sum(reshape(psth_neg,psthbins,length(psth_neg)/psthbins)); %
 
+%TODO: 
+% - Get PSD representation of both TFS and ENV 
+% - Do coherence between this spectra and the spectrum of the stimulus
+% (mscohere)
+% 
+
+% polarity tolerant component (ENV)
+fs2 = Fs/(length(psth_pos)/length(Psth_pos));
+s = (Psth_pos + Psth_neg)/2;
+s = s(1:(fs2*length(test_sig)/test_fs));
+periodogram(s,ones(1,length(s)),2048,fs2,'power'); 
+
+% polarity sensitve component (TFS)
+d = (Psth_pos - Psth_neg)/2;
+periodogram(d,ones(1,length(d)),2048,fs2,'power'); 
 
 %% plot
 simtime = length(psth_pos)/Fs;
