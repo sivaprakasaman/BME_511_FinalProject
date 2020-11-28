@@ -96,8 +96,8 @@ ex_phiT_PSD= cell(numel(all_CF_Hz), 1);
 ex_freq_PSD= cell(numel(all_CF_Hz), 1);
 
 rng('default');
-% for freqVar= 10%:length(all_CF_Hz)
-parfor freqVar= 1:length(all_CF_Hz)
+ for freqVar= 10%:length(all_CF_Hz)
+%parfor freqVar= 1:length(all_CF_Hz)
     %% Create SAM tone and play it at 30 dB re Threshold
     curCF_Hz= all_CF_Hz(freqVar);
     
