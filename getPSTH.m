@@ -1,4 +1,5 @@
 addpath('Sound_Samples/Part A/')
+addpath('Sound_Samples/Part B/Violin')
 addpath('Chimera code and WAV files')
 addpath('BEZ2018model')
 addpath('SpikeTrains_SpectroTemporal-master');
@@ -11,7 +12,9 @@ cd ../
 clear all; clc
 close all
 
-%[test_sig test_fs]= audioread('violin_A4_normal.mp3');
+%[test_sig test_fs]= audioread('flute_A4_normal.mp3');
+[test_sig test_fs]= audioread('violin_A4_phrase_forte_arco-spiccato.mp3');
+
 %% testing
 
 
@@ -60,13 +63,13 @@ close all
 
 %TODO: Read more on these params
 % model parameters
-CF    = 1.7e3;   % CF in Hz; %gonna need to change this
+CF    = 440;   % CF in Hz; %gonna need to change this
 spont = 70;   % spontaneous firing rate %SATYA CHANGED TO 70/s
 tabs   = 0.6e-3; % Absolute refractory period
 trel   = 0.6e-3; % Baseline mean relative refractory period
 cohc  = 1.0;    % normal ohc function
 cihc  = 1.0;    % normal ihc function
-species = 1;    % 1 for cat (2 for human with Shera et al. tuning; 3 for human with Glasberg & Moore tuning) %read up on this tuning
+species = 3;    % 1 for cat (2 for human with Shera et al. tuning; 3 for human with Glasberg & Moore tuning) %read up on this tuning
 noiseType = 0;  % 1 for variable fGn; 0 for fixed (frozen) fGn
 implnt = 0;     % "0" for approximate or "1" for actual implementation of the power-law functions in the Synapse
 
@@ -78,10 +81,10 @@ T  = 1;  % stimulus duration in seconds
 rt = 2.5e-3; % rise/fall time in seconds
 %ondelay = 10e-3;
 
-test_fs = Fs;
-t = 0:(1/test_fs):T;
-test_sig = (sin(2*pi*Fmod*t)+1).*sin(2*pi*F0*t);
-test_sig = helper.gen_rescale(test_sig', stimdb);
+% test_fs = Fs;
+% t = 0:(1/test_fs):T;
+% test_sig = (sin(2*pi*Fmod*t)+1).*sin(2*pi*F0*t);
+test_sig = helper.gen_rescale(test_sig, stimdb);
 
 %Modify to work with alternating polarities
 
@@ -171,14 +174,14 @@ title('AN Reponse to A4 - Violin | CF = 440 Hz')
 
 
 figure;
-ax(1) = subplot(2,1,1)
+ax(1) = subplot(2,1,1);
 semilogx(freqPSTH, s_psd,'b');
 title('Modulation PSD')
 ylabel('PSD (dB/Hz)');
 xlim([0,5000])
 
 
-ax(2) = subplot(2,1,2)
+ax(2) = subplot(2,1,2);
 semilogx(freqPSTH, phi_psd,'r');
 title('Carrier Freq PSD')
 xlabel('Freq (Hz)');
