@@ -12,12 +12,12 @@ cd ../
 clear all; clc
 close all
 
-%[test_sig test_fs]= audioread('flute_A4_normal.mp3');
-[test_sig test_fs]= audioread('violin_A4_phrase_forte_arco-spiccato.mp3');
+[test_sig test_fs]= audioread('flute_A4_normal.mp3');
+%[test_sig test_fs]= audioread('violin_A4_phrase_forte_arco-spiccato.mp3');
 
 %% testing
-
-
+% 
+% 
 % modFreq = 20;
 % 
 % 
@@ -59,11 +59,11 @@ close all
 % test_sig = curSAM_pos';
 % test_fs = StimParams.fs;
 
-%% Following the general structure of testANmodel_BEZ2018.m:
+%% Generate Spikes:
 
 %TODO: Read more on these params
 % model parameters
-CF    = 440;   % CF in Hz; %gonna need to change this
+CF    = 440;   % CF in Hz; %gonn5a need to change this
 spont = 70;   % spontaneous firing rate %SATYA CHANGED TO 70/s
 tabs   = 0.6e-3; % Absolute refractory period
 trel   = 0.6e-3; % Baseline mean relative refractory period
@@ -73,7 +73,7 @@ species = 3;    % 1 for cat (2 for human with Shera et al. tuning; 3 for human w
 noiseType = 0;  % 1 for variable fGn; 0 for fixed (frozen) fGn
 implnt = 0;     % "0" for approximate or "1" for actual implementation of the power-law functions in the Synapse
 
-stimdb = 30; % stimulus intensity in dB SPL
+stimdb = 65; % stimulus intensity in dB SPL
 F0 = CF; % stimulus frequency in Hz
 Fmod = 40;
 Fs = 100e3;  % sampling rate in Hz (must be 100, 200 or 500 kHz)
@@ -84,6 +84,7 @@ rt = 2.5e-3; % rise/fall time in seconds
 % test_fs = Fs;
 % t = 0:(1/test_fs):T;
 % test_sig = (sin(2*pi*Fmod*t)+1).*sin(2*pi*F0*t);
+% test_sig = test_sig';
 test_sig = helper.gen_rescale(test_sig, stimdb);
 
 %Modify to work with alternating polarities
@@ -118,7 +119,7 @@ Psth_neg = sum(reshape(psth_neg,psthbins,length(psth_neg)/psthbins)); %
 % binEdges= 0:1/Fs:T;
 % Psth_pos = histcounts(psth_pos, binEdges);
 % Psth_neg = histcounts(psth_neg, binEdges);
-
+%% Spectral Analyses
 
 %TODO: 
 % - Get PSD representation of both TFS and ENV 
@@ -126,12 +127,18 @@ Psth_neg = sum(reshape(psth_neg,psthbins,length(psth_neg)/psthbins)); %
 % (mscohere)
 % 
 
+NW = 4;
+NFFT = 4e3;
+
 % polarity tolerant component (ENV)
 fs2 = Fs/(length(psth_pos)/length(Psth_pos));
 s = (Psth_pos + Psth_neg)/2;
 s = s(1:(fs2*length(test_sig)/test_fs));
 %[s_psd, freqPSTH] = periodogram(s,hamming(length(s)),2048,fs2,'power'); 
 [s_psd, freqPSTH]= helper.plot_dpss_psd(s,fs2); 
+[s_psd_w, freq_w] = pwelch(s, [], [] ,NFFT, fs2);
+%try PMTM
+[s_psd_pmtm, freq_pmtm] = pmtm(s,NW, NFFT,fs2);
 
 %FIX THIS, necessary?? Need to adjust filter params
 %filtObj= helper.get_filter_fdesign('bp', [max(.1, CF-5*20) CF+5*20], fs2, 2); % second order for now
@@ -145,6 +152,16 @@ d = d(1:(fs2*length(test_sig)/test_fs)); %truncate
 phi = sqrt(2)*rms(d)*(d./abs(hilbert(d)));
 %[phi2_psd, freqs] = periodogram(phi,hamming(length(d)),2048,fs2,'centered'); 
 [phi_psd, freqPSTH]= helper.plot_dpss_psd(phi,fs2); 
+[phi_psd_w, freq_w] = pwelch(phi, [], [] ,4e3, fs2);
+
+[phi_psd_pmtm, freq_pmtm] = pmtm(phi,NW, NFFT,fs2);
+
+s_psd_w = 10*log10(s_psd_w);
+s_psd_pmtm = 10*log10(s_psd_pmtm);
+phi_psd_w = 10*log10(phi_psd_w);
+phi_psd_pmtm = 10*log10(phi_psd_pmtm);
+
+% TFS_coherence_pmtm = 
 
 %% plot
 simtime = length(psth_pos)/Fs;
@@ -175,14 +192,16 @@ title('AN Reponse to A4 - Violin | CF = 440 Hz')
 
 figure;
 ax(1) = subplot(2,1,1);
-semilogx(freqPSTH, s_psd,'b');
+%semilogx(freqPSTH, s_psd,'b');
+semilogx(freq_pmtm, s_psd_pmtm,'b')
 title('Modulation PSD')
 ylabel('PSD (dB/Hz)');
 xlim([0,5000])
 
 
 ax(2) = subplot(2,1,2);
-semilogx(freqPSTH, phi_psd,'r');
+%semilogx(freqPSTH, phi_psd,'r');
+semilogx(freq_pmtm, phi_psd_pmtm,'r')
 title('Carrier Freq PSD')
 xlabel('Freq (Hz)');
 ylabel('PSD (dB/Hz)');
