@@ -129,15 +129,21 @@ Psth_neg = sum(reshape(psth_neg,psthbins,length(psth_neg)/psthbins)); %
 
 NW = 4;
 NFFT = 4e3;
+lp_co = 200;
+lp_ord = 6;
 
 fs2 = Fs/(length(psth_pos)/length(Psth_pos));
+input = resample(pin,fs2,Fs);
 
+%Hilbert Env/filtering:
+hilb_env = abs(hilbert(pin));
+[B,A] = butter(lp_ord,lp_co/(Fs/2));
+hilb_env = filter(B,A,hilb_env);
 
-
-[sig_psd_pmtm, freq_pmtm_sig] = pmtm(pin,NW,Fs,Fs);
-[sig_psd_env, freq_pmtm_env] = pmtm(abs(hilbert(pin)),NW,Fs,Fs);
+[sig_psd_pmtm, freq_pmtm_sig] = pmtm(pin,NW,NFFT,Fs);
+[sig_psd_env, freq_pmtm_env] = pmtm(hilb_env,NW,NFFT,Fs);
 %[sig_psd_env, freq_pmtm_env] = pmtm(envelope(pin,4000,'peak'),NW,Fs,Fs);
-[sig_psd_tfs, freq_pmtm_tfs] = pmtm(cos(angle(hilbert(pin))),NW,Fs,Fs);
+[sig_psd_tfs, freq_pmtm_tfs] = pmtm(cos(angle(hilbert(input))),NW,NFFT,Fs);
 
 % polarity tolerant component (ENV)
 s = (Psth_pos + Psth_neg)/2;
@@ -173,8 +179,11 @@ sig_psd_pmtm = 10*log10(sig_psd_pmtm);
 sig_psd_env = 10*log10(sig_psd_env);
 sig_psd_tfs = 10*log10(sig_psd_tfs);
 
+tfs_corr_hilb_tfs = xcorr(phi,input);
+P_tfs_hilb_tfs = pmtm(tfs_corr_hilb_tfs,NW, NFFT,fs2);
 
-% TFS_coherence_pmtm = 
+TFS_coherence_pmtm = (abs(P_tfs_hilb_tfs).^2)./(abs(P_tfs_hilb_tfs).*abs(sig_psd_pmtm));
+
 
 %% plot
 simtime = length(psth_pos)/Fs;
