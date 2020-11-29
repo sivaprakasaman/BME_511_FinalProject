@@ -12,8 +12,8 @@ cd ../
 clear all; clc
 close all
 
-[test_sig test_fs]= audioread('flute_A4_normal.mp3');
-%[test_sig test_fs]= audioread('violin_A4_phrase_forte_arco-spiccato.mp3');
+%[test_sig test_fs]= audioread('flute_A4_normal.mp3');
+[test_sig test_fs]= audioread('violin_A4_phrase_forte_arco-spiccato.mp3');
 
 %% testing
 % 
@@ -84,7 +84,7 @@ rt = 2.5e-3; % rise/fall time in seconds
 % test_fs = Fs;
 % t = 0:(1/test_fs):T;
 % test_sig = (sin(2*pi*Fmod*t)+1).*sin(2*pi*F0*t);
-% test_sig = test_sig';
+%  test_sig = test_sig';
 test_sig = helper.gen_rescale(test_sig, stimdb);
 
 %Modify to work with alternating polarities
@@ -130,8 +130,16 @@ Psth_neg = sum(reshape(psth_neg,psthbins,length(psth_neg)/psthbins)); %
 NW = 4;
 NFFT = 4e3;
 
-% polarity tolerant component (ENV)
 fs2 = Fs/(length(psth_pos)/length(Psth_pos));
+
+
+
+[sig_psd_pmtm, freq_pmtm_sig] = pmtm(pin,NW,Fs,Fs);
+[sig_psd_env, freq_pmtm_env] = pmtm(abs(hilbert(pin)),NW,Fs,Fs);
+%[sig_psd_env, freq_pmtm_env] = pmtm(envelope(pin,4000,'peak'),NW,Fs,Fs);
+[sig_psd_tfs, freq_pmtm_tfs] = pmtm(cos(angle(hilbert(pin))),NW,Fs,Fs);
+
+% polarity tolerant component (ENV)
 s = (Psth_pos + Psth_neg)/2;
 s = s(1:(fs2*length(test_sig)/test_fs));
 %[s_psd, freqPSTH] = periodogram(s,hamming(length(s)),2048,fs2,'power'); 
@@ -141,7 +149,7 @@ s = s(1:(fs2*length(test_sig)/test_fs));
 [s_psd_pmtm, freq_pmtm] = pmtm(s,NW, NFFT,fs2);
 
 %FIX THIS, necessary?? Need to adjust filter params
-%filtObj= helper.get_filter_fdesign('bp', [max(.1, CF-5*20) CF+5*20], fs2, 2); % second order for now
+% filtObj= helper.get_filter_fdesign('bp', [max(.1, CF-5*20) CF+5*20], fs2, 2); % second order for now
 
 
 % polarity sensitve component (TFS)
@@ -160,6 +168,11 @@ s_psd_w = 10*log10(s_psd_w);
 s_psd_pmtm = 10*log10(s_psd_pmtm);
 phi_psd_w = 10*log10(phi_psd_w);
 phi_psd_pmtm = 10*log10(phi_psd_pmtm);
+
+sig_psd_pmtm = 10*log10(sig_psd_pmtm);
+sig_psd_env = 10*log10(sig_psd_env);
+sig_psd_tfs = 10*log10(sig_psd_tfs);
+
 
 % TFS_coherence_pmtm = 
 
@@ -191,21 +204,37 @@ title('AN Reponse to A4 - Violin | CF = 440 Hz')
 
 
 figure;
-ax(1) = subplot(2,1,1);
+ax1 = subplot(3,1,1);
 %semilogx(freqPSTH, s_psd,'b');
-semilogx(freq_pmtm, s_psd_pmtm,'b')
+%plotyy(freq_pmtm_env, sig_psd_env,freq_pmtm_tfs, sig_psd_tfs)
+plot(freq_pmtm_sig, sig_psd_pmtm+100,'k',freq_pmtm_env, sig_psd_env,'b',freq_pmtm_tfs, sig_psd_tfs,'r')
+set(gca, 'XScale', 'log')
+title('Input PSD')
+ylabel('PSD (dB/Hz)');
+legend('Signal','Envelope','Fine Structure')
+ylim([-200,0]);
+%xlim([0,5000])
+
+ax2 = subplot(3,1,2);
+%semilogx(freqPSTH, s_psd,'b');
+plot(freq_pmtm, s_psd_pmtm,'b')
+set(gca, 'XScale', 'log')
 title('Modulation PSD')
 ylabel('PSD (dB/Hz)');
-xlim([0,5000])
+%xlim([0,5000])
 
 
-ax(2) = subplot(2,1,2);
+ax3 = subplot(3,1,3);
 %semilogx(freqPSTH, phi_psd,'r');
-semilogx(freq_pmtm, phi_psd_pmtm,'r')
+plot(freq_pmtm, phi_psd_pmtm,'r')
+set(gca, 'XScale', 'log')
 title('Carrier Freq PSD')
 xlabel('Freq (Hz)');
 ylabel('PSD (dB/Hz)');
-xlim([0,5000])
+%xlim([0,5000])
 
-linkaxes(ax,'x');
+ax1.XLim = [1, 5000];
+ax2.XLim = [1, 5000];
+ax3.XLim = [1, 5000];
+linkaxes([ax1,ax2,ax3],'x');
 
