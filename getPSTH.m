@@ -12,68 +12,68 @@ cd ../
 clear all; clc
 close all
 
-%[test_sig test_fs]= audioread('flute_A4_normal.mp3');
-[test_sig test_fs]= audioread('violin_A4_phrase_forte_arco-spiccato.mp3');
+%[test_sig test_fs]= audioread('violin_A4_normal.mp3');
+%[test_sig test_fs]= audioread('violin_A4_phrase_forte_arco-spiccato.mp3');
 
 %% testing
 % 
-% 
-% modFreq = 20;
-% 
-% 
-% StimParams.fs= 100e3;
-% StimParams.fm= modFreq;
-% StimParams.modDepth= 1;
-% StimParams.dur= 1;
-% StimParams.phi_m= [];
-% StimParams.dBreThresh= 40;
-% StimParams.rlf_dur= .4;
-% StimParams.dBSPL= 30;
-% StimParams.DrivenRateTarget= 130;
-% 
-% ANparams.spont = 70;   % spontaneous firing rate
-% ANparams.tabs= 0.6e-3; % Absolute refractory period
-% ANparams.trel= 0.6e-3; % Baseline mean relative refractory period
-% ANparams.cohc= 1.0;    % normal ohc function
-% ANparams.cihc= 1.0;    % normal ihc function
-% ANparams.species= 1;    % 1 for cat (2 for human with Shera et al. tuning; 3 for human with Glasberg & Moore tuning)
-% ANparams.noiseType= 0;  % 1 for variable fGn; 0 for fixed (frozen) fGn
-% ANparams.implnt= 0;     % "0" for approximate or "1" for actual implementation of the power-law functions in the Synapse
-% ANparams.dt= 1/StimParams.fs; %  time step
-% 
-% 
-%     curCF_Hz= 1e3;
-%     
-%     
-%     [curSAM_pos, ~]= helper.create_SAM(curCF_Hz, StimParams.fm, StimParams.fs, StimParams.modDepth, StimParams.dur, [], StimParams.phi_m);
-%     
-%     %     thresh_dBSPL= get_thresh_curCF(curSAM_pos(1:round(StimParams.rlf_dur*StimParams.fs)), curCF_Hz, ANparams);
-%     %     curSAM_pos= gen_rescale(curSAM_pos, thresh_dBSPL + StimParams.dBreThresh);
-%     
-%     oa_dBSPL= helper.get_dBSPL_from_rlf(curSAM_pos(1:round(StimParams.rlf_dur*StimParams.fs)), curCF_Hz, ANparams, StimParams.DrivenRateTarget*StimParams.rlf_dur);
-%     %     oa_dBSPL= 30;
-% 
-%     curSAM_pos= helper.gen_rescale(curSAM_pos, oa_dBSPL);
-%     curSAM_neg= -curSAM_pos;
-% 
-% test_sig = curSAM_pos';
-% test_fs = StimParams.fs;
+
+modFreq = 20;
+
+
+StimParams.fs= 100e3;
+StimParams.fm= modFreq;
+StimParams.modDepth= 1;
+StimParams.dur= 1;
+StimParams.phi_m= [];
+StimParams.dBreThresh= 40;
+StimParams.rlf_dur= .4;
+StimParams.dBSPL= 30;
+StimParams.DrivenRateTarget= 130;
+
+ANparams.spont = 70;   % spontaneous firing rate
+ANparams.tabs= 0.6e-3; % Absolute refractory period
+ANparams.trel= 0.6e-3; % Baseline mean relative refractory period
+ANparams.cohc= 1.0;    % normal ohc function
+ANparams.cihc= 1.0;    % normal ihc function
+ANparams.species= 1;    % 1 for cat (2 for human with Shera et al. tuning; 3 for human with Glasberg & Moore tuning)
+ANparams.noiseType= 0;  % 1 for variable fGn; 0 for fixed (frozen) fGn
+ANparams.implnt= 0;     % "0" for approximate or "1" for actual implementation of the power-law functions in the Synapse
+ANparams.dt= 1/StimParams.fs; %  time step
+
+
+    curCF_Hz= 1e3;
+    
+    
+    [curSAM_pos, ~]= helper.create_SAM(curCF_Hz, StimParams.fm, StimParams.fs, StimParams.modDepth, StimParams.dur, [], StimParams.phi_m);
+    
+    %     thresh_dBSPL= get_thresh_curCF(curSAM_pos(1:round(StimParams.rlf_dur*StimParams.fs)), curCF_Hz, ANparams);
+    %     curSAM_pos= gen_rescale(curSAM_pos, thresh_dBSPL + StimParams.dBreThresh);
+    
+    oa_dBSPL= helper.get_dBSPL_from_rlf(curSAM_pos(1:round(StimParams.rlf_dur*StimParams.fs)), curCF_Hz, ANparams, StimParams.DrivenRateTarget*StimParams.rlf_dur);
+    %     oa_dBSPL= 30;
+
+    curSAM_pos= helper.gen_rescale(curSAM_pos, oa_dBSPL);
+    curSAM_neg= -curSAM_pos;
+
+test_sig = curSAM_pos';
+test_fs = StimParams.fs;
 
 %% Generate Spikes:
 
 %TODO: Read more on these params
 % model parameters
-CF    = 440;   % CF in Hz; %gonn5a need to change this
+CF    = 4e3;   % CF in Hz; %gonn5a need to change this
 spont = 70;   % spontaneous firing rate %SATYA CHANGED TO 70/s
 tabs   = 0.6e-3; % Absolute refractory period
 trel   = 0.6e-3; % Baseline mean relative refractory period
-cohc  = 1.0;    % normal ohc function
-cihc  = 1.0;    % normal ihc function
+cohc  = .1;    % normal ohc function
+cihc  = .1;    % normal ihc function
 species = 3;    % 1 for cat (2 for human with Shera et al. tuning; 3 for human with Glasberg & Moore tuning) %read up on this tuning
 noiseType = 0;  % 1 for variable fGn; 0 for fixed (frozen) fGn
 implnt = 0;     % "0" for approximate or "1" for actual implementation of the power-law functions in the Synapse
 
-stimdb = 65; % stimulus intensity in dB SPL
+stimdb = 80; % stimulus intensity in dB SPL
 F0 = CF; % stimulus frequency in Hz
 Fmod = 40;
 Fs = 100e3;  % sampling rate in Hz (must be 100, 200 or 500 kHz)
@@ -84,7 +84,7 @@ rt = 2.5e-3; % rise/fall time in seconds
 % test_fs = Fs;
 % t = 0:(1/test_fs):T;
 % test_sig = (sin(2*pi*Fmod*t)+1).*sin(2*pi*F0*t);
-%  test_sig = test_sig';
+test_sig = test_sig';
 test_sig = helper.gen_rescale(test_sig, stimdb);
 
 %Modify to work with alternating polarities
@@ -93,7 +93,8 @@ nrep = 25; % number of stimulus repetitions (e.g., 50);
 psthbinwidth = 1e-4; % binwidth in seconds;
 psthbins = round(psthbinwidth*Fs);  % number of psth bins per psth bin
 
-pin = resample(test_sig, Fs, test_fs)'; 
+pin = resample(test_sig, Fs, test_fs)';
+pin = pin(1:T*Fs);
 dt=1/Fs; %  time step
 
 % t = 0:1/Fs:T-1/Fs; % time vector
@@ -127,27 +128,27 @@ Psth_neg = sum(reshape(psth_neg,psthbins,length(psth_neg)/psthbins)); %
 % (mscohere)
 % 
 
-NW = 4;
+NW = 2;
 NFFT = 4e3;
-lp_co = 200;
+lp_co = 500;
 lp_ord = 6;
 
 fs2 = Fs/(length(psth_pos)/length(Psth_pos));
 input = resample(pin,fs2,Fs);
 
 %Hilbert Env/filtering:
-hilb_env = abs(hilbert(pin));
-[B,A] = butter(lp_ord,lp_co/(Fs/2));
-hilb_env = filter(B,A,hilb_env);
+%hilb_env = abs(hilbert(input));
 
-[sig_psd_pmtm, freq_pmtm_sig] = pmtm(pin,NW,NFFT,Fs);
-[sig_psd_env, freq_pmtm_env] = pmtm(hilb_env,NW,NFFT,Fs);
-%[sig_psd_env, freq_pmtm_env] = pmtm(envelope(pin,4000,'peak'),NW,Fs,Fs);
-[sig_psd_tfs, freq_pmtm_tfs] = pmtm(cos(angle(hilbert(input))),NW,NFFT,Fs);
+% [B,A] = butter(lp_ord,lp_co/(Fs/2));
+% hilb_env = filter(B,A,hilb_env);
+hilb_env = envelope(input,75,'peak');
+[sig_psd_pmtm, freq_pmtm_sig] = pmtm(input,NW,NFFT,fs2);
+[sig_psd_env, freq_pmtm_env] = pmtm(hilb_env,NW,NFFT,fs2);
+[sig_psd_tfs, freq_pmtm_tfs] = pmtm(cos(angle(hilbert(input))),NW,NFFT,fs2);
 
 % polarity tolerant component (ENV)
 s = (Psth_pos + Psth_neg)/2;
-s = s(1:(fs2*length(test_sig)/test_fs));
+s = s(1:(fs2*T));
 %[s_psd, freqPSTH] = periodogram(s,hamming(length(s)),2048,fs2,'power'); 
 [s_psd, freqPSTH]= helper.plot_dpss_psd(s,fs2); 
 [s_psd_w, freq_w] = pwelch(s, [], [] ,NFFT, fs2);
@@ -160,29 +161,34 @@ s = s(1:(fs2*length(test_sig)/test_fs));
 
 % polarity sensitve component (TFS)
 d = (Psth_pos - Psth_neg)/2;
-d = d(1:(fs2*length(test_sig)/test_fs)); %truncate
+d = d(1:(fs2*T)); %truncate
 %d= filter(filtObj, d);
 
 phi = sqrt(2)*rms(d)*(d./abs(hilbert(d)));
 %[phi2_psd, freqs] = periodogram(phi,hamming(length(d)),2048,fs2,'centered'); 
 [phi_psd, freqPSTH]= helper.plot_dpss_psd(phi,fs2); 
 [phi_psd_w, freq_w] = pwelch(phi, [], [] ,4e3, fs2);
-
+ 
 [phi_psd_pmtm, freq_pmtm] = pmtm(phi,NW, NFFT,fs2);
+
+tfs_corr_hilb_tfs = xcorr(input,phi);
+P_tfs_hilb_tfs = pmtm(tfs_corr_hilb_tfs,NW, NFFT,fs2);
+P_tfs_hilb_tfs = 10*log10(P_tfs_hilb_tfs);
+
+
+sig_psd_pmtm = 10*log10(sig_psd_pmtm);
+sig_psd_env = 10*log10(sig_psd_env);
+sig_psd_tfs = 10*log10(sig_psd_tfs);
 
 s_psd_w = 10*log10(s_psd_w);
 s_psd_pmtm = 10*log10(s_psd_pmtm);
 phi_psd_w = 10*log10(phi_psd_w);
 phi_psd_pmtm = 10*log10(phi_psd_pmtm);
 
-sig_psd_pmtm = 10*log10(sig_psd_pmtm);
-sig_psd_env = 10*log10(sig_psd_env);
-sig_psd_tfs = 10*log10(sig_psd_tfs);
+%% Coherence (Depends on phase, so cannot use PSD outputs)
 
-tfs_corr_hilb_tfs = xcorr(phi,input);
-P_tfs_hilb_tfs = pmtm(tfs_corr_hilb_tfs,NW, NFFT,fs2);
-
-TFS_coherence_pmtm = (abs(P_tfs_hilb_tfs).^2)./(abs(P_tfs_hilb_tfs).*abs(sig_psd_pmtm));
+[TFS_coherence f_coherence] = mscohere(input,phi, [],[],NFFT,fs2);
+[ENV_coherence f_coherence] = mscohere(hilb_env,s,[],[],NFFT,fs2);
 
 
 %% plot
@@ -190,7 +196,7 @@ simtime = length(psth_pos)/Fs;
 tvect = 0:psthbinwidth:simtime-psthbinwidth;
 
 tt= 0:1/Fs:(length(psth_pos)-1)/Fs;
-
+t_env = 1/fs2:1/fs2:T;
 px = zeros(size(psth_pos));
 px(1:length(pin)) = pin;
 
@@ -206,7 +212,7 @@ xlim(ceil(tt([1 end])*1e3))
 title('apPSTH')
 
 subplot(2,1,2);
-plot(tt,px)
+plot(tt,px,t_env,hilb_env)
 ylabel('Pressure (Pa)')
 xlabel('Time (ms)')
 title('AN Reponse to A4 - Violin | CF = 440 Hz')
@@ -247,3 +253,12 @@ ax2.XLim = [1, 5000];
 ax3.XLim = [1, 5000];
 linkaxes([ax1,ax2,ax3],'x');
 
+figure;
+hold on 
+semilogx(f_coherence,ENV_coherence)
+semilogx(f_coherence,TFS_coherence)
+hold off
+xlabel('Frequency (Hz)')
+ylabel('Coherence')
+
+legend('ENV','TFS');

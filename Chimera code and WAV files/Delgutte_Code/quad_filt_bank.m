@@ -3,7 +3,7 @@ function b = quad_filt_bank(cutoffs, Fs, N)
 % 	whose real and imaginary parts are in quadrature
 % Usage: b = quad_filt_bank(cutoffs, Fs, N)
 %   cutoffs   band cutoff frequencies (Nbands + 1)
-%   Fs        sampling rate (default 1)
+%   Fs        sampling rate z(default 1)
 %   N         filter order (default 8*Fs/(min(bandwidth)))
 %   b         filter bank [N+1 X Nbands]
 %
