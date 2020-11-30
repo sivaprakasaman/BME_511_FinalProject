@@ -63,17 +63,17 @@ test_fs = StimParams.fs;
 
 %TODO: Read more on these params
 % model parameters
-CF    = 4e3;   % CF in Hz; %gonn5a need to change this
+CF    = 1e3;   % CF in Hz; %gonn5a need to change this
 spont = 70;   % spontaneous firing rate %SATYA CHANGED TO 70/s
 tabs   = 0.6e-3; % Absolute refractory period
 trel   = 0.6e-3; % Baseline mean relative refractory period
-cohc  = .1;    % normal ohc function
-cihc  = .1;    % normal ihc function
+cohc  = 1;    % normal ohc function
+cihc  = 1;    % normal ihc function
 species = 3;    % 1 for cat (2 for human with Shera et al. tuning; 3 for human with Glasberg & Moore tuning) %read up on this tuning
 noiseType = 0;  % 1 for variable fGn; 0 for fixed (frozen) fGn
 implnt = 0;     % "0" for approximate or "1" for actual implementation of the power-law functions in the Synapse
 
-stimdb = 80; % stimulus intensity in dB SPL
+stimdb = 65; % stimulus intensity in dB SPL
 F0 = CF; % stimulus frequency in Hz
 Fmod = 40;
 Fs = 100e3;  % sampling rate in Hz (must be 100, 200 or 500 kHz)
