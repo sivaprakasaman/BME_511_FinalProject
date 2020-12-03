@@ -63,12 +63,12 @@ test_fs = StimParams.fs;
 
 %TODO: Read more on these params
 % model parameters
-CF    = 1e3;   % CF in Hz; %gonn5a need to change this
+CF    = 1000;   % CF in Hz; %gonn5a need to change this
 spont = 70;   % spontaneous firing rate %SATYA CHANGED TO 70/s
 tabs   = 0.6e-3; % Absolute refractory period
 trel   = 0.6e-3; % Baseline mean relative refractory period
-cohc  = 1;    % normal ohc function
-cihc  = 1;    % normal ihc function
+cohc  = .1;    % normal ohc function
+cihc  = .1;    % normal ihc function
 species = 3;    % 1 for cat (2 for human with Shera et al. tuning; 3 for human with Glasberg & Moore tuning) %read up on this tuning
 noiseType = 0;  % 1 for variable fGn; 0 for fixed (frozen) fGn
 implnt = 0;     % "0" for approximate or "1" for actual implementation of the power-law functions in the Synapse
@@ -171,9 +171,7 @@ phi = sqrt(2)*rms(d)*(d./abs(hilbert(d)));
  
 [phi_psd_pmtm, freq_pmtm] = pmtm(phi,NW, NFFT,fs2);
 
-tfs_corr_hilb_tfs = xcorr(input,phi);
-P_tfs_hilb_tfs = pmtm(tfs_corr_hilb_tfs,NW, NFFT,fs2);
-P_tfs_hilb_tfs = 10*log10(P_tfs_hilb_tfs);
+
 
 
 sig_psd_pmtm = 10*log10(sig_psd_pmtm);
@@ -185,13 +183,25 @@ s_psd_pmtm = 10*log10(s_psd_pmtm);
 phi_psd_w = 10*log10(phi_psd_w);
 phi_psd_pmtm = 10*log10(phi_psd_pmtm);
 
-%% Coherence (Depends on phase, so cannot use PSD outputs)
+%% Coherence & Cross-Spectral Density (Depends on phase, so cannot use PSD outputs)
 
 [TFS_coherence f_coherence] = mscohere(input,phi, [],[],NFFT,fs2);
 [ENV_coherence f_coherence] = mscohere(hilb_env,s,[],[],NFFT,fs2);
 
+% [TFS_coherence f_coherence] = cpsd(input,phi, [],[],NFFT,fs2);
+% [ENV_coherence f_coherence] = cpsd(hilb_env,s,[],[],NFFT,fs2);
+
+tfs_corr_hilb_tfs = xcorr(input,phi);
+P_tfs_hilb_tfs = pmtm(tfs_corr_hilb_tfs,NW, NFFT,fs2);
+P_tfs_hilb_tfs = 10*log10(P_tfs_hilb_tfs);
+
+env_corr_hilb_env = xcorr(hilb_env,s);
+P_env_hilb_env = pmtm(env_corr_hilb_env, NW, NFFT, fs2);
+P_env_hilb_env = 10*log10(P_env_hilb_env);
 
 %% plot
+close all 
+
 simtime = length(psth_pos)/Fs;
 tvect = 0:psthbinwidth:simtime-psthbinwidth;
 
@@ -255,10 +265,25 @@ linkaxes([ax1,ax2,ax3],'x');
 
 figure;
 hold on 
-semilogx(f_coherence,ENV_coherence)
+semilogx(f_coherence,ENV_coherence);
 semilogx(f_coherence,TFS_coherence)
 hold off
+set(gca, 'XScale', 'log')
+
 xlabel('Frequency (Hz)')
 ylabel('Coherence')
 
 legend('ENV','TFS');
+
+figure;
+hold on 
+semilogx(freq_pmtm,P_env_hilb_env,'LineWidth',1.5)
+semilogx(freq_pmtm,P_tfs_hilb_tfs,'LineWidth',1.5);
+hold off
+set(gca, 'XScale', 'log')
+
+xlabel('Frequency (Hz)')
+ylabel('Cross-Spectral Density (dB/Hz)')
+title('CSD of ENV/TFS Spectra with Hilbert ENV/TFS Spectra');
+legend('ENV','TFS');
+grid on
