@@ -12,58 +12,58 @@ cd ../
 clear all; clc
 close all
 
-%[test_sig test_fs]= audioread('violin_A4_normal.mp3');
+[test_sig test_fs]= audioread('violin_A4_normal.mp3');
 %[test_sig test_fs]= audioread('violin_A4_phrase_forte_arco-spiccato.mp3');
 
 %% testing
 % 
 
-modFreq = 20;
-
-
-StimParams.fs= 100e3;
-StimParams.fm= modFreq;
-StimParams.modDepth= 1;
-StimParams.dur= 1;
-StimParams.phi_m= [];
-StimParams.dBreThresh= 40;
-StimParams.rlf_dur= .4;
-StimParams.dBSPL= 30;
-StimParams.DrivenRateTarget= 130;
-
-ANparams.spont = 70;   % spontaneous firing rate
-ANparams.tabs= 0.6e-3; % Absolute refractory period
-ANparams.trel= 0.6e-3; % Baseline mean relative refractory period
-ANparams.cohc= 1.0;    % normal ohc function
-ANparams.cihc= 1.0;    % normal ihc function
-ANparams.species= 1;    % 1 for cat (2 for human with Shera et al. tuning; 3 for human with Glasberg & Moore tuning)
-ANparams.noiseType= 0;  % 1 for variable fGn; 0 for fixed (frozen) fGn
-ANparams.implnt= 0;     % "0" for approximate or "1" for actual implementation of the power-law functions in the Synapse
-ANparams.dt= 1/StimParams.fs; %  time step
-
-
-    curCF_Hz= 1e3;
-    
-    
-    [curSAM_pos, ~]= helper.create_SAM(curCF_Hz, StimParams.fm, StimParams.fs, StimParams.modDepth, StimParams.dur, [], StimParams.phi_m);
-    
-    %     thresh_dBSPL= get_thresh_curCF(curSAM_pos(1:round(StimParams.rlf_dur*StimParams.fs)), curCF_Hz, ANparams);
-    %     curSAM_pos= gen_rescale(curSAM_pos, thresh_dBSPL + StimParams.dBreThresh);
-    
-    oa_dBSPL= helper.get_dBSPL_from_rlf(curSAM_pos(1:round(StimParams.rlf_dur*StimParams.fs)), curCF_Hz, ANparams, StimParams.DrivenRateTarget*StimParams.rlf_dur);
-    %     oa_dBSPL= 30;
-
-    curSAM_pos= helper.gen_rescale(curSAM_pos, oa_dBSPL);
-    curSAM_neg= -curSAM_pos;
-
-test_sig = curSAM_pos';
-test_fs = StimParams.fs;
+% modFreq = 20;
+% 
+% 
+% StimParams.fs= 100e3;
+% StimParams.fm= modFreq;
+% StimParams.modDepth= 1;
+% StimParams.dur= 1;
+% StimParams.phi_m= [];
+% StimParams.dBreThresh= 40;
+% StimParams.rlf_dur= .4;
+% StimParams.dBSPL= 30;
+% StimParams.DrivenRateTarget= 130;
+% 
+% ANparams.spont = 70;   % spontaneous firing rate
+% ANparams.tabs= 0.6e-3; % Absolute refractory period
+% ANparams.trel= 0.6e-3; % Baseline mean relative refractory period
+% ANparams.cohc= 1.0;    % normal ohc function
+% ANparams.cihc= 1.0;    % normal ihc function
+% ANparams.species= 2;    % 1 for cat (2 for human with Shera et al. tuning; 3 for human with Glasberg & Moore tuning)
+% ANparams.noiseType= 0;  % 1 for variable fGn; 0 for fixed (frozen) fGn
+% ANparams.implnt= 0;     % "0" for approximate or "1" for actual implementation of the power-law functions in the Synapse
+% ANparams.dt= 1/StimParams.fs; %  time step
+% 
+% 
+%     curCF_Hz= 1e3;
+%     
+%     
+%     [curSAM_pos, ~]= helper.create_SAM(curCF_Hz, StimParams.fm, StimParams.fs, StimParams.modDepth, StimParams.dur, [], StimParams.phi_m);
+%     
+%     %     thresh_dBSPL= get_thresh_curCF(curSAM_pos(1:round(StimParams.rlf_dur*StimParams.fs)), curCF_Hz, ANparams);
+%     %     curSAM_pos= gen_rescale(curSAM_pos, thresh_dBSPL + StimParams.dBreThresh);
+%     
+%     oa_dBSPL= helper.get_dBSPL_from_rlf(curSAM_pos(1:round(StimParams.rlf_dur*StimParams.fs)), curCF_Hz, ANparams, StimParams.DrivenRateTarget*StimParams.rlf_dur);
+%     %     oa_dBSPL= 30;
+% 
+%     curSAM_pos= helper.gen_rescale(curSAM_pos, oa_dBSPL);
+%     curSAM_neg= -curSAM_pos;
+% 
+% test_sig = curSAM_pos';
+% test_fs = StimParams.fs;
 
 %% Generate Spikes:
 
 %TODO: Read more on these params
 % model parameters
-CF    = 1000;   % CF in Hz; %gonn5a need to change this
+CF    = 440;   % CF in Hz; %gonn5a need to change this
 spont = 70;   % spontaneous firing rate %SATYA CHANGED TO 70/s
 tabs   = 0.6e-3; % Absolute refractory period
 trel   = 0.6e-3; % Baseline mean relative refractory period
@@ -84,7 +84,7 @@ rt = 2.5e-3; % rise/fall time in seconds
 % test_fs = Fs;
 % t = 0:(1/test_fs):T;
 % test_sig = (sin(2*pi*Fmod*t)+1).*sin(2*pi*F0*t);
-test_sig = test_sig';
+% test_sig = test_sig';
 test_sig = helper.gen_rescale(test_sig, stimdb);
 
 %Modify to work with alternating polarities
@@ -189,15 +189,24 @@ phi_psd_pmtm = 10*log10(phi_psd_pmtm);
 [ENV_coherence f_coherence] = mscohere(hilb_env,s,[],[],NFFT,fs2);
 
 % [TFS_coherence f_coherence] = cpsd(input,phi, [],[],NFFT,fs2);
-% [ENV_coherence f_coherence] = cpsd(hilb_env,s,[],[],NFFT,fs2);
+% [ENV_coherence f_coherence] = cpsd(s,hilb_env, [],[],NFFT,fs2);
+
+%this might be "weird". Figure out a workaround
+
+WINDOW = hamming(length(input)/3);
+OVERLAP = .75;
 
 tfs_corr_hilb_tfs = xcorr(input,phi);
-P_tfs_hilb_tfs = pmtm(tfs_corr_hilb_tfs,NW, NFFT,fs2);
+%P_tfs_hilb_tfs = pmtm(tfs_corr_hilb_tfs,NW, NFFT,fs2);
+P_tfs_hilb_tfs = pwelch(tfs_corr_hilb_tfs,WINDOW,OVERLAP,NFFT, fs2);
 P_tfs_hilb_tfs = 10*log10(P_tfs_hilb_tfs);
 
 env_corr_hilb_env = xcorr(hilb_env,s);
-P_env_hilb_env = pmtm(env_corr_hilb_env, NW, NFFT, fs2);
+%P_env_hilb_env = pmtm(env_corr_hilb_env, NW, NFFT, fs2);
+P_env_hilb_env = pwelch(env_corr_hilb_env,WINDOW,OVERLAP,NFFT, fs2);
 P_env_hilb_env = 10*log10(P_env_hilb_env);
+
+%[s_2,c,~,~,~] = cmtm(input, phi,1/fs2,25); 
 
 %% plot
 close all 
@@ -265,8 +274,8 @@ linkaxes([ax1,ax2,ax3],'x');
 
 figure;
 hold on 
-semilogx(f_coherence,ENV_coherence);
-semilogx(f_coherence,TFS_coherence)
+semilogx(f_coherence,ENV_coherence, 'LineWidth',1.5);
+semilogx(f_coherence,TFS_coherence, 'LineWidth',1.5);
 hold off
 set(gca, 'XScale', 'log')
 
