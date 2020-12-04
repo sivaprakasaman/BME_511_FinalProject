@@ -1,4 +1,4 @@
-function [psth_pos,psth_neg] = getAP_PSTH(input,input_fs,modelParams,CF)
+function [psth_pos,psth_neg,psth_fs] = getAP_PSTH(input,input_fs,modelParams,CF)
 %UNTITLED3 Summary of this function goes here
 %   Detailed explanation goes here
 
@@ -23,8 +23,8 @@ function [psth_pos,psth_neg] = getAP_PSTH(input,input_fs,modelParams,CF)
     pin = pin(1:T*Fs);
     dt=1/modelParams.Fs;
 
-    psth_pos = zeros(1,4*(1/psthbinwidth));
-    psth_neg = zeros(1,4*(1/psthbinwidth));
+    psth_pos = zeros(length(CF),4*(1/psthbinwidth));
+    psth_neg = zeros(length(CF),4*(1/psthbinwidth));
 
     parfor i = 1:length(CF)
         cf = CF(i);
@@ -39,6 +39,7 @@ function [psth_pos,psth_neg] = getAP_PSTH(input,input_fs,modelParams,CF)
         psth_neg(i,:) = sum(reshape(psthr_neg,psthbins,length(psthr_neg)/psthbins)); 
         
     end
-
+    
+    psth_fs = Fs/(length(psthr_pos)/psthbins);
 end
 

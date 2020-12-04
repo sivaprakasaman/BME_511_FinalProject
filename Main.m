@@ -51,9 +51,15 @@ cond = 'normal';
 %% Spectral Analysis:
 l_instr = length(instruments);
 
-bankedSig = cell(1,l_instr);
+bankedSig = cell(1,l_instr); 
 psth_pos = cell(1,l_instr);
 psth_neg = cell(1,l_instr);
+env_cohere = cell(1,l_instr);
+tfs_cohere = cell(1,l_instr);
+s = cell(1,l_instr);
+phi = cell(1,l_instr);
+input_env = cell(1,l_instr);
+input_tfs = cell(1,l_instr);
 
 for i = 1:l_instr
    
@@ -62,7 +68,9 @@ for i = 1:l_instr
     
     %Each row is a new CF
     [bankedSig{i}] = cochlearFilterBank(input, input_fs, CF, 0); %1 for hwave rect
-    [psth_pos{i}, psth_neg{i}] = getAP_PSTH(input,input_fs,modelParams,CF);
+    [psth_pos{i}, psth_neg{i}, psth_fs] = getAP_PSTH(input,input_fs,modelParams,CF);
+    %[env_cohere{i}, tfs_cohere{i}, s{i}, phi{i}, input_env{i}, input_tfs{i}] = getCoherence(bankedSig, psth_pos{i}, psth_neg{i});
+    
     
 end
 
