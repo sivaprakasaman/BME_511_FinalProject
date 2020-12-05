@@ -26,20 +26,23 @@ function [psth_pos,psth_neg,psth_fs] = getAP_PSTH(input,input_fs,modelParams,CF)
     psth_pos = zeros(length(CF),4*(1/psthbinwidth));
     psth_neg = zeros(length(CF),4*(1/psthbinwidth));
 
-    parfor i = 1:length(CF)
+   for i = 1:length(CF)
         cf = CF(i);
         
-        vihc_pos = model_IHC_BEZ2018(pin,cf,nrep,dt,4*T,cohc,cihc,species);
-        vihc_neg = model_IHC_BEZ2018(-pin,cf,nrep,dt,4*T,cohc,cihc,species);
+        vihc_pos = model_IHC_BEZ2018(pin,cf,nrep,dt,4*floor(T),cohc,cihc,species);
+        vihc_neg = model_IHC_BEZ2018(-pin,cf,nrep,dt,4*floor(T),cohc,cihc,species);
 
         [psthr_pos, ~, ~, ~, ~,~] = model_Synapse_BEZ2018(vihc_pos,cf,nrep,dt,noiseType,implnt,spont,tabs,trel);
         [psthr_neg, ~, ~, ~, ~,~] = model_Synapse_BEZ2018(vihc_neg,cf,nrep,dt,noiseType,implnt,spont,tabs,trel);
 
         psth_pos(i,:) = sum(reshape(psthr_pos,psthbins,length(psthr_pos)/psthbins)); 
-        psth_neg(i,:) = sum(reshape(psthr_neg,psthbins,length(psthr_neg)/psthbins)); 
+        psth_neg(i,:) = sum(reshape(psthr_neg,psthbins,length(psthr_neg)/psthbins));
         
+        psth_fs_temp(i) = Fs/(length(psthr_pos)/psthbins);
     end
-    
-    psth_fs = Fs/(length(psthr_pos)/psthbins);
+   
+    %probably a better way to do this
+    psth_fs = psth_fs_temp(1);
+
 end
 

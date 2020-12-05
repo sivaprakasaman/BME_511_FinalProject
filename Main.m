@@ -24,7 +24,7 @@ mex gammatone_c.c
 
 %modelParams.CF = 0;
 CF = [125, 440, 880, 4e3];
-
+NFFT = 4000;
 modelParams.spont = 70;
 modelParams.tabs = 0.6e-3;
 modelParams.trel = 0.6e-3;
@@ -34,7 +34,7 @@ modelParams.species = 3; % 1 for cat (2 for human with Shera et al. tuning; 3 fo
 modelParams.noiseType = 0; % 1 for variable fGn; 0 for fixed (frozen) fGn
 modelParams.implnt = 0; % "0" for approximate or "1" for actual implementation of the power-law functions in the Synapse
 modelParams.stimdb = 65;
-modelParams.dur = 1; % stimulus duration in seconds
+modelParams.dur = 1; % stimulus duration in seconds, adjusted automatically to stimulus length
 modelParams.reps = 25; 
 modelParams.Fs = 100e3;
 modelParams.psthbinwidth = 1e-4;
@@ -65,11 +65,12 @@ for i = 1:l_instr
    
     filename = strcat(instruments(i),'_',pitch,'_',cond,'.mp3');
     [input, input_fs] = audioread(filename);
+    modelParams.dur = length(input)/input_fs;
     
     %Each row is a new CF
     [bankedSig{i}] = cochlearFilterBank(input, input_fs, CF, 0); %1 for hwave rect
     [psth_pos{i}, psth_neg{i}, psth_fs] = getAP_PSTH(input,input_fs,modelParams,CF);
-    %[env_cohere{i}, tfs_cohere{i}, s{i}, phi{i}, input_env{i}, input_tfs{i}] = getCoherence(bankedSig, psth_pos{i}, psth_neg{i});
+    [env_cohere{i}, tfs_cohere{i}, freq_cohere, s{i}, phi{i}, input_env{i}, input_tfs{i}] = getCoherence(bankedSig{i}, input_fs, psth_pos{i}, psth_neg{i}, psth_fs, NFFT, CF);
     
     
 end
@@ -77,7 +78,7 @@ end
 %% Plotting
 
 %apPSTH
-simtime = 4*modelParams.dur;
+simtime = 4*floor(modelParams.dur);
 tvect = 0:modelParams.psthbinwidth:simtime-modelParams.psthbinwidth;
 
 hold on
