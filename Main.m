@@ -23,8 +23,11 @@ mex gammatone_c.c
 %% Model Parameter Initialization:
 
 %modelParams.CF = 0;
-CF = [125, 440, 880, 4e3];
+F0 = 1e3;
+CF = [125, F0, 2*F0, 4e3];
 NFFT = 4000;
+NW = 3;
+
 modelParams.spont = 70;
 modelParams.tabs = 0.6e-3;
 modelParams.trel = 0.6e-3;
@@ -60,18 +63,30 @@ s = cell(1,l_instr);
 phi = cell(1,l_instr);
 input_env = cell(1,l_instr);
 input_tfs = cell(1,l_instr);
+env_csd = cell(1,l_instr);
+tfs_csd = cell(1,l_instr);
+env_psd = cell(1,l_instr);
+tfs_psd = cell(1,l_instr);
+input_env_psd = cell(1,l_instr);
+input_tfs_psd = cell(1,l_instr);
+
+
 
 for i = 1:l_instr
    
     filename = strcat(instruments(i),'_',pitch,'_',cond,'.mp3');
+    
+    %test
+    filename = 'SAM_test.wav';
+    
     [input, input_fs] = audioread(filename);
     modelParams.dur = length(input)/input_fs;
     
     %Each row is a new CF
     [bankedSig{i}] = cochlearFilterBank(input, input_fs, CF, 0); %1 for hwave rect
-    [psth_pos{i}, psth_neg{i}, psth_fs] = getAP_PSTH(input,input_fs,modelParams,CF);
+    [psth_pos{i}, psth_neg{i}, psth_fs] = getAP_PSTH(input, input_fs, modelParams, CF);
     [env_cohere{i}, tfs_cohere{i}, freq_cohere, s{i}, phi{i}, input_env{i}, input_tfs{i}] = getCoherence(bankedSig{i}, input_fs, psth_pos{i}, psth_neg{i}, psth_fs, NFFT, CF);
-    
+    [env_csd{i}, tfs_csd{i}, env_psd{i}, tfs_psd{i}, input_env_psd{i}, input_tfs_psd{i}, freq_SD] = getCSD(input_env{i}, input_tfs{i}, s{i}, phi{i}, NW, NFFT, psth_fs,"pmtm"); 
     
 end
 
@@ -85,7 +100,6 @@ hold on
 plot(tvect*1e3, psth_pos{1}(3,:)/modelParams.reps/modelParams.psthbinwidth) % Plot of estimated mean spike rate
 plot(tvect*1e3, -psth_neg{1}(3,:)/modelParams.reps/modelParams.psthbinwidth) % Plot of estimated mean spike rate
 hold off
-
 
 toc
 

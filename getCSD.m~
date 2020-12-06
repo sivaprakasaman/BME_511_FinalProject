@@ -1,0 +1,37 @@
+function [env_csd, tfs_csd, env_psd, tfs_psd, input_env_psd, input_tfs_psd, freq] = getCSD(input_env, input_tfs, s, phi, psth_fs, NW, NFFT, estimate_psd)
+%UNTITLED Summary of this function goes here
+%   Detailed explanation goes here
+
+    WINDOW = hamming(length(input_env)/3);
+    OVERLAP = .75;
+
+    if strcmp(estimate_psd,'pwelch')
+
+        [input_env_psd, freq] =  pwelch(input_env,[],[],NFFT, psth_fs);
+        input_tfs_psd =  pwelch(input_tfs,[],[],NFFT, psth_fs);
+
+        env_psd =  pwelch(s,[],[],NFFT, psth_fs);
+        tfs_psd =  pwelch(phi,[],[],NFFT, psth_fs);
+
+    else
+        [input_env_psd, freq] =  pmtm(input_env,NW, NFFT, psth_fs);
+        input_tfs_psd =  pmtm(input_tfs,NW, NFFT, psth_fs);
+
+        env_psd =  pmtm(s,NW, NFFT, psth_fs);
+        tfs_psd =  pmtm(phi,NW, NFFT, psth_fs);
+    end
+    
+    env_corr = xcorr(input_env, s);
+    tfs_corr = xcorr(input_tfs, phi);
+    
+    env_csd = pwelch(env_corr, WINDOW, OVERLAP, 
+    
+    input_env_psd = 10*log10(input_env_psd);
+    input_tfs_psd = 10*log10(input_tfs_psd);
+
+    env_psd = 10*log10(env_psd);
+    tfs_psd = 10*log10(tfs_psd);
+    
+    
+end
+

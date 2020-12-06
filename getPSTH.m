@@ -18,46 +18,46 @@ close all
 %% testing
 % 
 
-% modFreq = 20;
-% 
-% 
-% StimParams.fs= 100e3;
-% StimParams.fm= modFreq;
-% StimParams.modDepth= 1;
-% StimParams.dur= 1;
-% StimParams.phi_m= [];
-% StimParams.dBreThresh= 40;
-% StimParams.rlf_dur= .4;
-% StimParams.dBSPL= 30;
-% StimParams.DrivenRateTarget= 130;
-% 
-% ANparams.spont = 70;   % spontaneous firing rate
-% ANparams.tabs= 0.6e-3; % Absolute refractory period
-% ANparams.trel= 0.6e-3; % Baseline mean relative refractory period
-% ANparams.cohc= 1.0;    % normal ohc function
-% ANparams.cihc= 1.0;    % normal ihc function
-% ANparams.species= 2;    % 1 for cat (2 for human with Shera et al. tuning; 3 for human with Glasberg & Moore tuning)
-% ANparams.noiseType= 0;  % 1 for variable fGn; 0 for fixed (frozen) fGn
-% ANparams.implnt= 0;     % "0" for approximate or "1" for actual implementation of the power-law functions in the Synapse
-% ANparams.dt= 1/StimParams.fs; %  time step
-% 
-% 
-%     curCF_Hz= 1e3;
-%     
-%     
-%     [curSAM_pos, ~]= helper.create_SAM(curCF_Hz, StimParams.fm, StimParams.fs, StimParams.modDepth, StimParams.dur, [], StimParams.phi_m);
-%     
-%     %     thresh_dBSPL= get_thresh_curCF(curSAM_pos(1:round(StimParams.rlf_dur*StimParams.fs)), curCF_Hz, ANparams);
-%     %     curSAM_pos= gen_rescale(curSAM_pos, thresh_dBSPL + StimParams.dBreThresh);
-%     
-%     oa_dBSPL= helper.get_dBSPL_from_rlf(curSAM_pos(1:round(StimParams.rlf_dur*StimParams.fs)), curCF_Hz, ANparams, StimParams.DrivenRateTarget*StimParams.rlf_dur);
-%     %     oa_dBSPL= 30;
-% 
-%     curSAM_pos= helper.gen_rescale(curSAM_pos, oa_dBSPL);
-%     curSAM_neg= -curSAM_pos;
-% 
-% test_sig = curSAM_pos';
-% test_fs = StimParams.fs;
+modFreq = 20;
+
+
+StimParams.fs= 100e3;
+StimParams.fm= modFreq;
+StimParams.modDepth= 1;
+StimParams.dur= 1;
+StimParams.phi_m= [];
+StimParams.dBreThresh= 40;
+StimParams.rlf_dur= .4;
+StimParams.dBSPL= 30;
+StimParams.DrivenRateTarget= 130;
+
+ANparams.spont = 70;   % spontaneous firing rate
+ANparams.tabs= 0.6e-3; % Absolute refractory period
+ANparams.trel= 0.6e-3; % Baseline mean relative refractory period
+ANparams.cohc= 1.0;    % normal ohc function
+ANparams.cihc= 1.0;    % normal ihc function
+ANparams.species= 2;    % 1 for cat (2 for human with Shera et al. tuning; 3 for human with Glasberg & Moore tuning)
+ANparams.noiseType= 0;  % 1 for variable fGn; 0 for fixed (frozen) fGn
+ANparams.implnt= 0;     % "0" for approximate or "1" for actual implementation of the power-law functions in the Synapse
+ANparams.dt= 1/StimParams.fs; %  time step
+
+
+    curCF_Hz= 1e3;
+    
+    
+    [curSAM_pos, ~]= helper.create_SAM(curCF_Hz, StimParams.fm, StimParams.fs, StimParams.modDepth, StimParams.dur, [], StimParams.phi_m);
+    
+    %     thresh_dBSPL= get_thresh_curCF(curSAM_pos(1:round(StimParams.rlf_dur*StimParams.fs)), curCF_Hz, ANparams);
+    %     curSAM_pos= gen_rescale(curSAM_pos, thresh_dBSPL + StimParams.dBreThresh);
+    
+    oa_dBSPL= helper.get_dBSPL_from_rlf(curSAM_pos(1:round(StimParams.rlf_dur*StimParams.fs)), curCF_Hz, ANparams, StimParams.DrivenRateTarget*StimParams.rlf_dur);
+    %     oa_dBSPL= 30;
+
+    curSAM_pos= helper.gen_rescale(curSAM_pos, oa_dBSPL);
+    curSAM_neg= -curSAM_pos;
+
+test_sig = curSAM_pos';
+test_fs = StimParams.fs;
 
 %% Generate Spikes:
 

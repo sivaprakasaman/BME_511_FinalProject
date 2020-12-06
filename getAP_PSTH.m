@@ -17,7 +17,6 @@ function [psth_pos,psth_neg,psth_fs] = getAP_PSTH(input,input_fs,modelParams,CF)
     psthbinwidth = modelParams.psthbinwidth;
     
     psthbins = round(psthbinwidth*Fs);
-
     input = helper.gen_rescale(input, stimdb);
     pin = resample(input, Fs, input_fs)';
     pin = pin(1:T*Fs);
@@ -26,7 +25,7 @@ function [psth_pos,psth_neg,psth_fs] = getAP_PSTH(input,input_fs,modelParams,CF)
     psth_pos = zeros(length(CF),4*(1/psthbinwidth));
     psth_neg = zeros(length(CF),4*(1/psthbinwidth));
 
-   for i = 1:length(CF)
+   parfor i = 1:length(CF)
         cf = CF(i);
         
         vihc_pos = model_IHC_BEZ2018(pin,cf,nrep,dt,4*floor(T),cohc,cihc,species);
@@ -38,11 +37,9 @@ function [psth_pos,psth_neg,psth_fs] = getAP_PSTH(input,input_fs,modelParams,CF)
         psth_pos(i,:) = sum(reshape(psthr_pos,psthbins,length(psthr_pos)/psthbins)); 
         psth_neg(i,:) = sum(reshape(psthr_neg,psthbins,length(psthr_neg)/psthbins));
         
-        psth_fs_temp(i) = Fs/(length(psthr_pos)/psthbins);
     end
    
-    %probably a better way to do this
-    psth_fs = psth_fs_temp(1);
+    psth_fs = Fs/psthbins;
 
 end
 
