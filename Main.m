@@ -55,8 +55,14 @@ modelParams.buffer = 2;
 %% Stimuli Initialization:
 
 %Instrument
-instruments = ["banjo","clarinet","flute","trombone","violin"];
+%instruments = ["banjo","clarinet","flute","trombone","violin"];
 %instruments = ["banjo"];
+instruments = ["SAM Tone"];
+
+%ARTICULATION
+% instruments = ["Spiccato","Martele"];
+% articulations = ["violin_A4_phrase_forte_arco-spiccato.mp3","violin_A4_phrase_forte_arco-martele.mp3"];
+
 pitch = 'A4';
 cond = 'normal';
 
@@ -96,10 +102,14 @@ dur = cell(1,l_instr);
 wb = waitbar(0,'Starting Data Processing...');
 for i = 1:l_instr
    
-    filename = strcat(instruments(i),'_',pitch,'_',cond,'.mp3');
+    %instrument comparison
+    %filename = strcat(instruments(i),'_',pitch,'_',cond,'.mp3');
+    
+    %articulation comparison
+    %filename = articulations(i);
     
     %test
-    %filename = 'SAM_test.wav';
+    filename = 'SAM_test.wav';
     waitbar((i-1)/l_instr,wb,strcat('Processing- ', instruments(i),' Normal Hearing'));
     [input, input_fs] = audioread(filename);
     
@@ -121,7 +131,7 @@ for i = 1:l_instr
     %Impaired
     modelParams.cohc = cohc_impaired; 
     modelParams.cihc = cihc_impaired; 
-    %modelParams.stimdb = dB_stim + mean(dB_loss); %compensated
+    modelParams.stimdb = dB_stim + mean(dB_loss); %amplified
 
     [i_psth_pos{i}, i_psth_neg{i}, ~] = getAP_PSTH(input, input_fs, modelParams, CF);
     [i_env_cohere{i}, i_tfs_cohere{i}, ~, i_s{i}, i_phi{i}, ~, ~] = getCoherence(bankedSig{i}, input_fs, i_psth_pos{i}, i_psth_neg{i}, psth_fs, NFFT, CF);
@@ -160,13 +170,13 @@ box on;
 
 %% Plot Params:
 
-instrum = 5;
+instrum = 1;
 CF_ind = 2;
 
 %% apPSTH |normal/impaired| Stimulus Plot
 
 %apPSTH
-simtime = modelParams.buffer*floor(dur{instrum});
+simtime = modelParams.buffer*ceil(dur{instrum});
 tvect = 0:modelParams.psthbinwidth:simtime-modelParams.psthbinwidth;
 
 tt= (0:1:(simtime*input_fs-1))/input_fs;
@@ -222,8 +232,8 @@ set(gcf,'Position',[1200, 500, 800, 500]);
 
 %% Coherence:
 
-instrum = 5;
-CF_ind = 2;
+instrum = instrum;
+CF_ind = CF_ind;
 
 figure;
 subplot(2,1,1);
@@ -337,3 +347,4 @@ grid on;
 text(5,.85,strcat('CF = ', num2str(CF(CF_ind))),'FontSize',15,'HorizontalAlignment','center')
 set(gcf,'Position',[2000, 2000, 800, 600]);
 
+%%

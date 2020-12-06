@@ -23,14 +23,14 @@ function [psth_pos,psth_neg,psth_fs] = getAP_PSTH(input,input_fs,modelParams,CF)
     pin = pin(1:T*Fs);
     dt=1/modelParams.Fs;
 
-    psth_pos = zeros(length(CF),buffer*(1/psthbinwidth)*floor(T));
-    psth_neg = zeros(length(CF),buffer*(1/psthbinwidth)*floor(T));
+    psth_pos = zeros(length(CF),buffer*(1/psthbinwidth)*ceil(T));
+    psth_neg = zeros(length(CF),buffer*(1/psthbinwidth)*ceil(T));
 
    parfor i = 1:length(CF)
         cf = CF(i);
         
-        vihc_pos = model_IHC_BEZ2018(pin,cf,nrep,dt,buffer*floor(T),cohc(i),cihc(i),species);
-        vihc_neg = model_IHC_BEZ2018(-pin,cf,nrep,dt,buffer*floor(T),cohc(i),cihc(i),species);
+        vihc_pos = model_IHC_BEZ2018(pin,cf,nrep,dt,buffer*ceil(T),cohc(i),cihc(i),species);
+        vihc_neg = model_IHC_BEZ2018(-pin,cf,nrep,dt,buffer*ceil(T),cohc(i),cihc(i),species);
 
         [psthr_pos, ~, ~, ~, ~,~] = model_Synapse_BEZ2018(vihc_pos,cf,nrep,dt,noiseType,implnt,spont,tabs,trel);
         [psthr_neg, ~, ~, ~, ~,~] = model_Synapse_BEZ2018(vihc_neg,cf,nrep,dt,noiseType,implnt,spont,tabs,trel);
