@@ -42,7 +42,7 @@ modelParams.noiseType = 0; % 1 for variable fGn; 0 for fixed (frozen) fGn
 modelParams.implnt = 0; % "0" for approximate or "1" for actual implementation of the power-law functions in the Synapse
 modelParams.stimdb = 65;
 modelParams.dur = 1; % stimulus duration in seconds, adjusted automatically to stimulus length
-modelParams.reps = 25; 
+modelParams.reps = 75; 
 modelParams.Fs = 100e3;
 modelParams.psthbinwidth = 1e-4;
 modelParams.buffer = 2;
@@ -90,6 +90,8 @@ i_tfs_csd = cell(1,l_instr);
 i_env_psd = cell(1,l_instr);
 i_tfs_psd = cell(1,l_instr);
 
+dur = cell(1,l_instr);
+
 wb = waitbar(0,'Starting Data Processing...');
 for i = 1:l_instr
    
@@ -99,8 +101,9 @@ for i = 1:l_instr
     %filename = 'SAM_test.wav';
     waitbar((i-1)/l_instr,wb,strcat('Processing- ', instruments(i),' Normal Hearing'));
     [input, input_fs] = audioread(filename);
-    modelParams.dur = length(input)/input_fs;
     
+    dur{i} = length(input)/input_fs;
+    modelParams.dur = dur{i};
     
     %Normal Hearing
     modelParams.cohc = [1.0, 1.0, 1.0, 1.0]; %healthy
@@ -130,19 +133,24 @@ close(wb);
 
 %% Plot Params:
 
-instrum = 1;
-CF_ind = 2;
+instrum = 2;
+CF_ind = 4;
 
 %% apPSTH |normal/impaired| Stimulus Plot
 
 %apPSTH
-simtime = modelParams.buffer*floor(modelParams.dur);
+simtime = modelParams.buffer*floor(dur{instrum});
 tvect = 0:modelParams.psthbinwidth:simtime-modelParams.psthbinwidth;
 
 tt= (0:1:(simtime*input_fs-1))/input_fs;
 
 px = zeros(1,simtime*input_fs);
 px(1:length(bankedSig{instrum}(CF_ind,:))) = bankedSig{instrum}(CF_ind,:);
+
+tenv =  (0:1:(simtime*psth_fs-1))/psth_fs;
+
+px_env = zeros(1,simtime*psth_fs);
+px_env(1:length(input_env{instrum}(:,CF_ind))) = input_env{instrum}(:,CF_ind);
 
 figure;
 subplot(3,1,1);
@@ -173,10 +181,14 @@ title('apPSTH | Impaired Hearing')
 set(gca, 'FontSize',10);
 
 subplot(3,1,3);
-plot(tt*1e3,px,'k')
+hold on
+plot(tt*1e3, px,'k');
+plot(tenv*1e3, px_env,'r','LineWidth',1.5);
+hold off
 ylabel('Pressure (Pa)')
 xlabel('Time (ms)')
 title(strcat(instruments(instrum),' (Filtered at CF)'))
+legend('Stimulus','Envelope')
 set(gca, 'FontSize',10);
 
 set(gcf,'Position',[1200, 500, 800, 500]);
