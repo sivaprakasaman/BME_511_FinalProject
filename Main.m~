@@ -25,7 +25,7 @@ cd ../
 %% Model Parameter Initialization:
 
 %modelParams.CF = 0;
-F0 = 440;
+F0 = 1e3;
 CF = [125, F0, 2*F0, 4e3];
 dB_loss = [40, 40, 45, 50];
 NFFT = 4000;
@@ -109,7 +109,7 @@ for i = 1:l_instr
     %filename = articulations(i);
     
     %test
-    filename = 'SAM_test.wav';
+    %filename = 'SAM_test.wav';
     waitbar((i-1)/l_instr,wb,strcat('Processing- ', instruments(i),' Normal Hearing'));
     [input, input_fs] = audioread(filename);
     
@@ -131,7 +131,7 @@ for i = 1:l_instr
     %Impaired
     modelParams.cohc = cohc_impaired; 
     modelParams.cihc = cihc_impaired; 
-    modelParams.stimdb = dB_stim + mean(dB_loss); %compensated
+    modelParams.stimdb = dB_stim + mean(dB_loss); %amplified
 
     [i_psth_pos{i}, i_psth_neg{i}, ~] = getAP_PSTH(input, input_fs, modelParams, CF);
     [i_env_cohere{i}, i_tfs_cohere{i}, ~, i_s{i}, i_phi{i}, ~, ~] = getCoherence(bankedSig{i}, input_fs, i_psth_pos{i}, i_psth_neg{i}, psth_fs, NFFT, CF);
@@ -305,8 +305,6 @@ grid on;
 set(gcf,'Position',[2000, 300, 800, 600]);
 
 
-
-
 figure;
 
 hold on
@@ -347,4 +345,77 @@ grid on;
 text(5,.85,strcat('CF = ', num2str(CF(CF_ind))),'FontSize',15,'HorizontalAlignment','center')
 set(gcf,'Position',[2000, 2000, 800, 600]);
 
-%%
+%% Cross Spectral Density
+
+instrum = instrum;
+CF_ind = CF_ind;
+
+figure;
+subplot(2,1,1);
+hold on
+plot(freq_SD, tfs_csd{instrum}(:,CF_ind),'LineWidth',2.5);
+plot(freq_cohere, i_tfs_csd{instrum}(:,CF_ind),'LineWidth',2.5);
+hold off
+%set(gca, 'XScale', 'log')
+set(gca, 'FontSize',10);
+xlim([CF(CF_ind)-100, CF(CF_ind)+100]);
+% ylim([0,1]);
+title('TFS Cross-Spectral Density')
+legend('Normal','Impaired');
+ylabel('CSD (dB/Hz)');
+
+text(CF(CF_ind)-65,max(tfs_csd{instrum}(:,CF_ind)),strcat('CF = ', num2str(CF(CF_ind))),'FontSize',15,'HorizontalAlignment','center')
+text(CF(CF_ind)-65,max(tfs_csd{instrum}(:,CF_ind))-10,instruments(instrum),'FontSize',15,'HorizontalAlignment','center')
+
+box on;
+grid on;
+
+subplot(2,1,2);
+plot(freq_cohere,tfs_csd{instrum}(:,CF_ind)-i_tfs_csd{instrum}(:,CF_ind),'k','LineWidth',2.5);
+title('Normal Hearing - Impaired Hearing TFS CSD')
+legend('NH minus HL Coherence');
+xlim([CF(CF_ind)-100, CF(CF_ind)+100]);
+%ylim([-1,1])
+xlabel('Frequency (Hz)');
+ylabel('Difference (dB/Hz)');
+set(gca, 'FontSize',10);
+box on;
+grid on;
+set(gcf,'Position',[1200, 300, 800, 600]);
+
+
+figure;
+subplot(2,1,1);
+hold on
+plot(freq_SD, env_csd{instrum}(:,CF_ind),'LineWidth',2.5);
+plot(freq_cohere, i_env_csd{instrum}(:,CF_ind),'LineWidth',2.5);
+hold off
+set(gca, 'XScale', 'log')
+set(gca, 'FontSize',10);
+%xlim([CF(CF_ind)-100, CF(CF_ind)+100]);
+% ylim([0,1]);
+title('ENV Cross-Spectral Density')
+legend('Normal','Impaired');
+ylabel('CSD (dB/Hz)');
+
+text(10,max(env_csd{instrum}(:,CF_ind)),strcat('CF = ', num2str(CF(CF_ind))),'FontSize',15,'HorizontalAlignment','center')
+text(10,max(env_csd{instrum}(:,CF_ind))-10,instruments(instrum),'FontSize',15,'HorizontalAlignment','center')
+
+box on;
+grid on;
+
+subplot(2,1,2);
+plot(freq_cohere,env_csd{instrum}(:,CF_ind)-i_env_csd{instrum}(:,CF_ind),'k','LineWidth',2.5);
+title('Normal Hearing - Impaired Hearing ENV CSD')
+legend('NH minus HL Coherence');
+%xlim([CF(CF_ind)-100, CF(CF_ind)+100]);
+%ylim([-1,1])
+set(gca, 'XScale', 'log')
+xlabel('Frequency (Hz)');
+ylabel('Difference (dB/Hz)');
+set(gca, 'FontSize',10);
+box on;
+grid on;
+set(gcf,'Position',[1200, 300, 800, 600]);
+
+
