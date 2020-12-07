@@ -5,7 +5,6 @@ tic
 clear all, close all
 
 addpath('Sound_Samples/Part A/')
-addpath('Sound_Samples/Part B/Tambourine')
 addpath('Functions')
 addpath('Sound_Samples/Part B/Violin')
 addpath('Chimera code and WAV files')
@@ -26,7 +25,7 @@ cd ../
 
 %modelParams.CF = 0;
 F0 = 440;
-CF = [125, F0, 2*F0, 4e3];
+CF = [125, F0, 2*F0, 9*F0];
 dB_loss = [40, 40, 45, 50];
 NFFT = 4000;
 NW = 3;
@@ -55,13 +54,13 @@ modelParams.buffer = 2;
 %% Stimuli Initialization:
 
 %Instrument
-instruments = ["banjo","clarinet","flute","trombone","violin"];
+%instruments = ["banjo","clarinet","flute","trombone","violin"];
 %instruments = ["banjo"];
 %instruments = ["SAM Tone"];
 
 %ARTICULATION
-% instruments = ["Spiccato","Martele"];
-% articulations = ["violin_A4_phrase_forte_arco-spiccato.mp3","violin_A4_phrase_forte_arco-martele.mp3"];
+instruments = ["Spiccato","Martele"];
+articulations = ["violin_A4_phrase_forte_arco-spiccato.mp3","violin_A4_phrase_forte_arco-martele.mp3"];
 
 pitch = 'A4';
 cond = 'normal';
@@ -103,10 +102,10 @@ wb = waitbar(0,'Starting Data Processing...');
 for i = 1:l_instr
    
     %instrument comparison
-    filename = strcat(instruments(i),'_',pitch,'_',cond,'.mp3');
+    %filename = strcat(instruments(i),'_',pitch,'_',cond,'.mp3');
     
     %articulation comparison
-    %filename = articulations(i);
+    filename = articulations(i);
     
     %test
     %filename = 'SAM_test.wav';
@@ -172,8 +171,8 @@ box on;
 
 %% Plot Params:
 
-instrum = 5;
-CF_ind = 2;
+instrum = 2;
+CF_ind = 4;
 
 %% Gammatone:
 figure;
@@ -181,10 +180,10 @@ for i = 1:length(CF)
     subplot(4,1,i);
     plot(bankedSig{instrum}(i,:),'k')
     xlim([0,dur{instrum}*input_fs]);
-    if(i==1)
-       title('Gammatone Filterbank') 
-    end
+    title(strcat('CF = ',num2str(CF(i))));
 end
+ 
+xlabel('Sample #');
 
 %% apPSTH |normal/impaired| Stimulus Plot
 
@@ -243,7 +242,94 @@ set(gca, 'FontSize',10);
 
 set(gcf,'Position',[1200, 500, 800, 500]);
 
-%% Coherence:
+%% Coherence Normal Hearing across Instruments
+
+instrum = instrum;
+CF_ind = CF_ind;
+compare = [1,2];
+
+
+
+figure;
+hold on
+for i = 1:length(compare)
+    plot(freq_cohere,tfs_cohere{compare(i)}(:,CF_ind),'LineWidth',2.5);
+end
+hold off
+%set(gca, 'XScale', 'log')
+legend(instruments(compare));
+xlim([CF(CF_ind)-100, CF(CF_ind)+100]);
+title('Normal Hearing TFS Coherence Across Instruments')
+xlabel('Frequency (Hz)');
+ylabel('Coherence');
+ylim([0,1])
+box on;
+grid on;
+set(gcf,'Position',[1200, 2000, 800, 600]);
+text(CF(CF_ind)-65,.85,strcat('CF = ', num2str(CF(CF_ind))),'FontSize',15,'HorizontalAlignment','center')
+
+figure;
+hold on
+for i = 1:length(compare)
+    plot(freq_cohere,env_cohere{compare(i)}(:,CF_ind),'LineWidth',2.5);
+end
+hold off
+set(gca, 'XScale', 'log')
+legend(instruments(compare));
+xlim([0, CF(CF_ind)+100]);
+title('Normal Hearing ENV Coherence Across Instruments')
+xlabel('Frequency (Hz)');
+ylabel('Coherence');
+ylim([0,1])
+box on;
+grid on;
+set(gcf,'Position',[1200, 2000, 800, 600]);
+text(5,.85,strcat('CF = ', num2str(CF(CF_ind))),'FontSize',15,'HorizontalAlignment','center')
+
+figure;
+
+hold on
+for i = 1:length(instruments)
+    plot(freq_cohere,tfs_cohere{i}(:,CF_ind),'LineWidth',2.5);
+end
+hold off
+%set(gca, 'XScale', 'log')
+legend(instruments);
+xlim([CF(CF_ind)-100, CF(CF_ind)+100]);
+title('Normal Hearing TFS Coherence Across Instruments')
+xlabel('Frequency (Hz)');
+ylabel('Coherence');
+ylim([0,1])
+box on;
+grid on;
+set(gcf,'Position',[1200, 2000, 800, 600]);
+text(CF(CF_ind)-65,.85,strcat('CF = ', num2str(CF(CF_ind))),'FontSize',15,'HorizontalAlignment','center')
+
+
+figure;
+hold on
+for i = 1:length(instruments)
+   
+    plot(freq_cohere,env_cohere{i}(:,CF_ind),'LineWidth',2.5);
+    
+    
+end
+hold off
+set(gca, 'XScale', 'log')
+title('Normal Hearing ENV Coherence')
+xlabel('Frequency (Hz)');
+ylabel('Coherence');
+ylim([0,1])
+xlim([0, CF(CF_ind)]);
+legend(instruments);
+
+box on;
+grid on;
+text(5,.85,strcat('CF = ', num2str(CF(CF_ind))),'FontSize',15,'HorizontalAlignment','center')
+set(gcf,'Position',[2000, 2000, 800, 600]);
+
+
+%% Coherence NH vs HI:
 
 instrum = instrum;
 CF_ind = CF_ind;
@@ -290,7 +376,7 @@ plot(freq_cohere, i_env_cohere{instrum}(:,CF_ind),'LineWidth',2.5);
 hold off
 set(gca, 'XScale', 'log')
 set(gca, 'FontSize',10);
-%xlim([CF(CF_ind)-100, CF(CF_ind)+100]);
+xlim([0, CF(CF_ind)]);
 ylim([0,1]);
 title('ENV Mag. Squared Coherence')
 legend('Normal','Impaired');
@@ -316,6 +402,7 @@ set(gca, 'XScale', 'log')
 box on;
 grid on;
 set(gcf,'Position',[2000, 300, 800, 600]);
+xlim([0, CF(CF_ind)]);
 
 
 figure;
@@ -351,6 +438,7 @@ title('Normal Hearing - Impaired Hearing ENV Coherence')
 xlabel('Frequency (Hz)');
 ylabel('Difference');
 ylim([-1,1])
+xlim([0, CF(CF_ind)]);
 legend(instruments);
 
 box on;
