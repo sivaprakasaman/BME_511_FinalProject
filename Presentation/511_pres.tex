@@ -93,7 +93,7 @@ A start would be looking at how \textbf{\textit{\underline{timbre}}} is encoded 
 \begin{column}{0.6\textwidth}
 \includegraphics[width = 1.0\textwidth]{martele_spiccato_compare}
 \centering
-Envelope cues could help us differentiate between different articulations in music, such as \textit{martele} and \textit{spiccato} played by the violin
+Envelope cues could help us differentiate between different articulations in music, such as \href{./Audio/martele.mp3}{\textit{martele}} and \href{./Audio/spiccato.mp3}{\textit{spiccato}} played by the violin
 \end{column}
 \end{columns}
 
@@ -104,9 +104,9 @@ Envelope cues could help us differentiate between different articulations in mus
 Spectrograms are an useful tool to visualize differences in instruments. Here are a few of the stimuli I used. The sound samples were collected by the Philharmonia Orchestra in London.\\ 
 \vspace{.6em}
 \centering
-\includegraphics[height = .55\textheight]{spectrogram_banjo}
-\includegraphics[height = .55\textheight]{spectrogram_flute}
-\includegraphics[height = .55\textheight]{spectrogram_violin}
+\href{./Audio/banjo_A4_normal.mp3}{\includegraphics[height = .55\textheight]{spectrogram_banjo_normal}}
+\href{./Audio/trombone_A4_normal.mp3}{\includegraphics[height = .55\textheight]{spectrogram_trombone_normal}}
+\href{./Audio/violin_A4_normal.mp3}{\includegraphics[height = .55\textheight]{spectrogram_violin_normal}}
 \end{frame}
 
 \begin{frame}
@@ -128,6 +128,16 @@ Spectrograms are an useful tool to visualize differences in instruments. Here ar
 \end{frame}
 
 \begin{frame}
+\frametitle{General Methods Overview}
+
+
+\centering
+
+\includegraphics[height = .77\textheight]{methods_pics} \vspace{1em} 
+
+\end{frame}
+
+\begin{frame}
 \frametitle{Modeling Approach}
 
 \begin{itemize}[label = $\blacktriangleright$]
@@ -137,7 +147,7 @@ Spectrograms are an useful tool to visualize differences in instruments. Here ar
 
 \item I simulated auditory nerve responses at 4 different Characteristic Frequencies (CF): \\
 \begin{center}
-125 Hz, $F_0$ (440 Hz), $F_1$ (880 Hz), and $F_9$ (3960 Hz)
+125 Hz, $F_0$ (440 Hz), $F_1$ (880 Hz), and $F_8$ (3960 Hz)
 \end{center}\vspace{.5em}
 
 \item The Organ of Corti in the cochlea can be thought of as a filterbank with filters centered around a given CF (the further down the cochlea you go, the lower the CF) 
@@ -160,20 +170,44 @@ This model also allowed adjustment of Outer Hair Cell and Inner Hair Cell parame
 
 \centering
 
-\includegraphics[width = 1\textwidth]{bruce} \vspace{1em} 
+\includegraphics[width = 1\textwidth]{bruce} \vspace{.5em}
+ 
 A schematic of the original Zilany Model. Sound stimulus goes in, spike train comes out. 
 
 \end{frame}
 
+
 \begin{frame}
-\frametitle{General Methods Overview}
+\frametitle{Model Parameters and Implementation}
+\textbf{Using BEZ2018 Model:}\vspace{.5em}
+
+\begin{itemize}
+\item \textbf{\underline{Parameters:}}
+\begin{itemize}[label = $\blacktriangleright$]
+\item CF (Hz) = 125, 440, 880, 3960
+\item Repetitions/CF = 75
+\item Spont. Rate = 70
+\item Abs and Baseline mean relative refrac. period = 0.6 ms
+\item IHC/OHC health = set by \texttt{fitaudiogram2}
+\item Species = Human - Shera tuning
+\item Fractional Gauss. noise type = 0 (fixed)
+\item Power-law functions = 0 (approximate)
+\item \textbf{Spike time resolution = 10} $\mu$s
+\end{itemize}\vspace{.5em}
+
+\item \textbf{\underline{Other Details:}}
+\begin{itemize}[label = $\blacktriangleright$]
+\item Compensated for threshold shift in Hearing Loss condition by increasing stimulus gain by mean threshold shift (43.75 dB)
+\end{itemize}
+\end{itemize}
+
+\end{frame}
 
 
-\centering
+\begin{frame}
+\frametitle{Model Output}
 
-\includegraphics[height = .77\textheight]{methods_pics} \vspace{1em} 
-
-
+\includegraphics[width = .88\textwidth]{apPSTH_violin}
 \end{frame}
 
 

@@ -29,12 +29,12 @@ for i = 1:length(instruments)
     hold on
     plot(DFTfreq_Hz,DFTsig(i,:),'LineWidth',1.5);
     hold off
-    %sound(sig,fs);
-    %getSpect(sig,40,fs,65,'mag',strcat(instruments(i),' ',' Crescendo_Hand'))
-%     cd Figures
-%     saveas(gcf,strcat('spectrogram_',instruments(i),'_',cond),'epsc')
-% %     cd ../
-%     close all;
+    sound(sig,fs);
+    getSpect(sig,40,fs,70,'mag',strcat(instruments(i),' - A4'))
+    cd Figures
+    saveas(gcf,strcat('spectrogram_',instruments(i),'_',cond),'epsc')
+    cd ../
+    close all;
     pause(1);
     
 end

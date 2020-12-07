@@ -78,7 +78,7 @@ set(gcf,'Position',[fig_xcorner_inches fig_ycorner_inches fig_xlength_inches fig
 
 h1 = subplot(4,1,[1 2]);
 surf(SG_Time_sec,SG_Freq_Hz,Sgram_dB,'EdgeColor','none');  % These commands are from MATLAB's help on "spectrogram"
-axis xy; axis tight; colormap(jet); view(0,90);
+axis xy; axis tight; colormap(parula); view(0,90);
 % title(sprintf('Spectrogram [BW = %.f Hz; Dynamic Range = %.f dB]',BW,DR),'FontSize',LabelFontSize)
 title(['Spectrogram:',sigName]);
 xlabel('Time (sec)','FontSize',LabelFontSize);
