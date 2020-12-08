@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2020.10.23)  8 DEC 2020 01:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2020.10.30)  8 DEC 2020 09:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -478,6 +478,12 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/sansmathaccent/sansmathaccent.sty
+Package: sansmathaccent 2020/01/31
+
+(/usr/share/texlive/texmf-dist/tex/latex/koma-script/scrlfile.sty
+Package: scrlfile 2020/07/22 v3.31 KOMA-Script package (loading files)
 )))
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasetranslator.sty
 (/usr/share/texlive/texmf-dist/tex/latex/translator/translator.sty
@@ -870,10 +876,10 @@ LaTeX Font Warning: Font shape `OT1/cmss/bx/it' undefined
 
 ]
 Package epstopdf Info: Source file: <./Figures/fft_all.eps>
-(epstopdf)                    date: 2020-12-06 23:35:09
+(epstopdf)                    date: 2020-12-07 14:21:38
 (epstopdf)                    size: 312557 bytes
 (epstopdf)             Output file: <./Figures/fft_all-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-12-06 23:35:10
+(epstopdf)                    date: 2020-12-07 14:21:38
 (epstopdf)                    size: 108119 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Figures/fft_all-eps-conv
 erted-to.pdf ./Figures/fft_all.eps>
@@ -889,10 +895,10 @@ line 79.
 
  <./Figures/fft_all-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./Figures/mart_spic.eps>
-(epstopdf)                    date: 2020-12-07 22:17:07
+(epstopdf)                    date: 2020-12-07 21:34:18
 (epstopdf)                    size: 190929 bytes
 (epstopdf)             Output file: <./Figures/mart_spic-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-12-07 22:17:07
+(epstopdf)                    date: 2020-12-07 21:34:48
 (epstopdf)                    size: 68529 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Figures/mart_spic-eps-co
 nverted-to.pdf ./Figures/mart_spic.eps>
@@ -908,11 +914,11 @@ t line 100.
 
  <./Figures/mart_spic-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./Figures/spectrogram_banjo_normal.eps>
-(epstopdf)                    date: 2020-12-07 22:17:07
+(epstopdf)                    date: 2020-12-07 17:40:00
 (epstopdf)                    size: 184386 bytes
 (epstopdf)             Output file: <./Figures/spectrogram_banjo_normal-eps-con
 verted-to.pdf>
-(epstopdf)                    date: 2020-12-07 22:17:07
+(epstopdf)                    date: 2020-12-07 17:42:16
 (epstopdf)                    size: 192738 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Figures/spectrogram_banj
 o_normal-eps-converted-to.pdf ./Figures/spectrogram_banjo_normal.eps>
@@ -928,11 +934,11 @@ f  used on input line 110.
 (pdftex.def)             Requested size: 128.87961pt x 145.491pt.
 Package epstopdf Info: Source file: <./Figures/spectrogram_trombone_normal.eps>
 
-(epstopdf)                    date: 2020-12-07 22:17:07
+(epstopdf)                    date: 2020-12-07 17:40:21
 (epstopdf)                    size: 203787 bytes
 (epstopdf)             Output file: <./Figures/spectrogram_trombone_normal-eps-
 converted-to.pdf>
-(epstopdf)                    date: 2020-12-07 22:17:07
+(epstopdf)                    date: 2020-12-07 17:42:17
 (epstopdf)                    size: 220009 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Figures/spectrogram_trom
 bone_normal-eps-converted-to.pdf ./Figures/spectrogram_trombone_normal.eps>
@@ -947,11 +953,11 @@ Package pdftex.def Info: ./Figures/spectrogram_trombone_normal-eps-converted-to
 .pdf  used on input line 110.
 (pdftex.def)             Requested size: 128.87961pt x 145.491pt.
 Package epstopdf Info: Source file: <./Figures/spectrogram_violin_normal.eps>
-(epstopdf)                    date: 2020-12-07 22:17:07
+(epstopdf)                    date: 2020-12-07 17:40:29
 (epstopdf)                    size: 198818 bytes
 (epstopdf)             Output file: <./Figures/spectrogram_violin_normal-eps-co
 nverted-to.pdf>
-(epstopdf)                    date: 2020-12-07 22:17:07
+(epstopdf)                    date: 2020-12-07 17:42:18
 (epstopdf)                    size: 209468 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Figures/spectrogram_viol
 in_normal-eps-converted-to.pdf ./Figures/spectrogram_violin_normal.eps>
@@ -986,11 +992,11 @@ Overfull \hbox (14.95349pt too wide) in paragraph at lines 138--138
 
  <./Figures/methods_pics.png>]
 Package epstopdf Info: Source file: <./Figures/filterbank.eps>
-(epstopdf)                    date: 2020-12-07 22:17:07
+(epstopdf)                    date: 2020-12-07 14:21:38
 (epstopdf)                    size: 376830 bytes
 (epstopdf)             Output file: <./Figures/filterbank-eps-converted-to.pdf>
 
-(epstopdf)                    date: 2020-12-07 22:17:07
+(epstopdf)                    date: 2020-12-07 19:16:57
 (epstopdf)                    size: 124218 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Figures/filterbank-eps-c
 onverted-to.pdf ./Figures/filterbank.eps>
@@ -1008,10 +1014,10 @@ ut line 156.
 
 ]
 Package epstopdf Info: Source file: <./Figures/audiogram.eps>
-(epstopdf)                    date: 2020-12-06 19:42:33
+(epstopdf)                    date: 2020-12-07 14:21:38
 (epstopdf)                    size: 20886 bytes
 (epstopdf)             Output file: <./Figures/audiogram-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-12-07 00:30:40
+(epstopdf)                    date: 2020-12-07 14:21:38
 (epstopdf)                    size: 9975 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Figures/audiogram-eps-co
 nverted-to.pdf ./Figures/audiogram.eps>
@@ -1037,11 +1043,11 @@ Package pdftex.def Info: ./Figures/bruce.png  used on input line 196.
 
 ]
 Package epstopdf Info: Source file: <./Figures/apPSTH_violin.eps>
-(epstopdf)                    date: 2020-12-07 22:17:07
+(epstopdf)                    date: 2020-12-07 14:21:38
 (epstopdf)                    size: 660218 bytes
 (epstopdf)             Output file: <./Figures/apPSTH_violin-eps-converted-to.p
 df>
-(epstopdf)                    date: 2020-12-07 22:17:07
+(epstopdf)                    date: 2020-12-07 18:42:18
 (epstopdf)                    size: 167751 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Figures/apPSTH_violin-ep
 s-converted-to.pdf ./Figures/apPSTH_violin.eps>
@@ -1062,11 +1068,11 @@ input line 228.
 
 ]
 Package epstopdf Info: Source file: <./Figures/all_ENV_coherence_440.eps>
-(epstopdf)                    date: 2020-12-07 22:17:07
+(epstopdf)                    date: 2020-12-07 14:21:38
 (epstopdf)                    size: 39477 bytes
 (epstopdf)             Output file: <./Figures/all_ENV_coherence_440-eps-conver
 ted-to.pdf>
-(epstopdf)                    date: 2020-12-07 22:17:07
+(epstopdf)                    date: 2020-12-07 20:13:38
 (epstopdf)                    size: 15613 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Figures/all_ENV_coherenc
 e_440-eps-converted-to.pdf ./Figures/all_ENV_coherence_440.eps>
@@ -1086,11 +1092,11 @@ Overfull \hbox (25.02023pt too wide) in paragraph at lines 282--282
  []
 
 Package epstopdf Info: Source file: <./Figures/all_TFS_coherence_440.eps>
-(epstopdf)                    date: 2020-12-07 22:17:07
+(epstopdf)                    date: 2020-12-07 14:21:38
 (epstopdf)                    size: 27499 bytes
 (epstopdf)             Output file: <./Figures/all_TFS_coherence_440-eps-conver
 ted-to.pdf>
-(epstopdf)                    date: 2020-12-07 22:17:07
+(epstopdf)                    date: 2020-12-07 20:13:39
 (epstopdf)                    size: 12471 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Figures/all_TFS_coherenc
 e_440-eps-converted-to.pdf ./Figures/all_TFS_coherence_440.eps>
@@ -1115,11 +1121,11 @@ Overfull \hbox (17.82709pt too wide) in paragraph at lines 282--282
 rence_440-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./Figures/trombone_violin_ENV_coherence_44
 0.eps>
-(epstopdf)                    date: 2020-12-07 22:17:07
+(epstopdf)                    date: 2020-12-07 14:21:38
 (epstopdf)                    size: 30457 bytes
 (epstopdf)             Output file: <./Figures/trombone_violin_ENV_coherence_44
 0-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-12-07 22:17:07
+(epstopdf)                    date: 2020-12-07 20:13:40
 (epstopdf)                    size: 12387 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Figures/trombone_violin_
 ENV_coherence_440-eps-converted-to.pdf ./Figures/trombone_violin_ENV_coherence_
@@ -1141,11 +1147,11 @@ Overfull \hbox (25.02023pt too wide) in paragraph at lines 297--297
 
 Package epstopdf Info: Source file: <./Figures/trombone_violin_TFS_coherence_44
 0.eps>
-(epstopdf)                    date: 2020-12-07 22:17:07
+(epstopdf)                    date: 2020-12-07 14:21:38
 (epstopdf)                    size: 23187 bytes
 (epstopdf)             Output file: <./Figures/trombone_violin_TFS_coherence_44
 0-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-12-07 22:17:07
+(epstopdf)                    date: 2020-12-07 20:13:41
 (epstopdf)                    size: 10614 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Figures/trombone_violin_
 TFS_coherence_440-eps-converted-to.pdf ./Figures/trombone_violin_TFS_coherence_
@@ -1170,11 +1176,11 @@ Overfull \hbox (15.01665pt too wide) in paragraph at lines 297--297
  <./Figures/trombone_violin_ENV_coherence_440-eps-converted-to.pdf> <./Figures/
 trombone_violin_TFS_coherence_440-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./Figures/violin_ENV_COH_440.eps>
-(epstopdf)                    date: 2020-12-07 22:17:07
+(epstopdf)                    date: 2020-12-07 14:21:38
 (epstopdf)                    size: 40209 bytes
 (epstopdf)             Output file: <./Figures/violin_ENV_COH_440-eps-converted
 -to.pdf>
-(epstopdf)                    date: 2020-12-07 22:17:07
+(epstopdf)                    date: 2020-12-07 20:52:10
 (epstopdf)                    size: 14338 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Figures/violin_ENV_COH_4
 40-eps-converted-to.pdf ./Figures/violin_ENV_COH_440.eps>
@@ -1194,11 +1200,11 @@ Overfull \hbox (21.80829pt too wide) in paragraph at lines 311--311
  []
 
 Package epstopdf Info: Source file: <./Figures/violin_TFS_COH_440.eps>
-(epstopdf)                    date: 2020-12-07 22:17:07
+(epstopdf)                    date: 2020-12-07 14:21:38
 (epstopdf)                    size: 30210 bytes
 (epstopdf)             Output file: <./Figures/violin_TFS_COH_440-eps-converted
 -to.pdf>
-(epstopdf)                    date: 2020-12-07 22:17:07
+(epstopdf)                    date: 2020-12-07 20:55:10
 (epstopdf)                    size: 11945 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Figures/violin_TFS_COH_4
 40-eps-converted-to.pdf ./Figures/violin_TFS_COH_440.eps>
@@ -1222,11 +1228,11 @@ Overfull \hbox (15.01665pt too wide) in paragraph at lines 311--311
  <./Figures/violin_ENV_COH_440-eps-converted-to.pdf> <./Figures/violin_TFS_COH_
 440-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./Figures/violin_ENV_COH_3960.eps>
-(epstopdf)                    date: 2020-12-07 22:17:07
+(epstopdf)                    date: 2020-12-07 14:21:38
 (epstopdf)                    size: 121698 bytes
 (epstopdf)             Output file: <./Figures/violin_ENV_COH_3960-eps-converte
 d-to.pdf>
-(epstopdf)                    date: 2020-12-07 22:17:07
+(epstopdf)                    date: 2020-12-07 20:57:24
 (epstopdf)                    size: 43296 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Figures/violin_ENV_COH_3
 960-eps-converted-to.pdf ./Figures/violin_ENV_COH_3960.eps>
@@ -1246,11 +1252,11 @@ Overfull \hbox (25.02023pt too wide) in paragraph at lines 325--325
  []
 
 Package epstopdf Info: Source file: <./Figures/violin_TFS_COH_3960.eps>
-(epstopdf)                    date: 2020-12-07 22:17:07
+(epstopdf)                    date: 2020-12-07 14:21:38
 (epstopdf)                    size: 30261 bytes
 (epstopdf)             Output file: <./Figures/violin_TFS_COH_3960-eps-converte
 d-to.pdf>
-(epstopdf)                    date: 2020-12-07 22:17:07
+(epstopdf)                    date: 2020-12-07 20:57:25
 (epstopdf)                    size: 12060 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Figures/violin_TFS_COH_3
 960-eps-converted-to.pdf ./Figures/violin_TFS_COH_3960.eps>
@@ -1274,11 +1280,11 @@ Overfull \hbox (15.01665pt too wide) in paragraph at lines 325--325
  <./Figures/violin_ENV_COH_3960-eps-converted-to.pdf> <./Figures/violin_TFS_COH
 _3960-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./Figures/martele_spiccato_ENV_3960.eps>
-(epstopdf)                    date: 2020-12-07 22:17:07
+(epstopdf)                    date: 2020-12-07 14:21:38
 (epstopdf)                    size: 82237 bytes
 (epstopdf)             Output file: <./Figures/martele_spiccato_ENV_3960-eps-co
 nverted-to.pdf>
-(epstopdf)                    date: 2020-12-07 22:17:07
+(epstopdf)                    date: 2020-12-07 21:10:34
 (epstopdf)                    size: 31445 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Figures/martele_spiccato
 _ENV_3960-eps-converted-to.pdf ./Figures/martele_spiccato_ENV_3960.eps>
@@ -1298,11 +1304,11 @@ Overfull \hbox (25.02023pt too wide) in paragraph at lines 339--339
  []
 
 Package epstopdf Info: Source file: <./Figures/martele_ENV_diff.eps>
-(epstopdf)                    date: 2020-12-07 22:17:07
+(epstopdf)                    date: 2020-12-07 14:21:38
 (epstopdf)                    size: 121740 bytes
 (epstopdf)             Output file: <./Figures/martele_ENV_diff-eps-converted-t
 o.pdf>
-(epstopdf)                    date: 2020-12-07 22:17:07
+(epstopdf)                    date: 2020-12-07 21:10:36
 (epstopdf)                    size: 43316 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Figures/martele_ENV_diff
 -eps-converted-to.pdf ./Figures/martele_ENV_diff.eps>
@@ -1325,11 +1331,11 @@ Overfull \hbox (21.03903pt too wide) in paragraph at lines 339--339
  <./Figures/martele_spiccato_ENV_3960-eps-converted-to.pdf> <./Figures/martele_
 ENV_diff-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./Figures/martele_spiccato_TFS_440.eps>
-(epstopdf)                    date: 2020-12-07 22:17:07
+(epstopdf)                    date: 2020-12-07 14:21:38
 (epstopdf)                    size: 23934 bytes
 (epstopdf)             Output file: <./Figures/martele_spiccato_TFS_440-eps-con
 verted-to.pdf>
-(epstopdf)                    date: 2020-12-07 22:17:07
+(epstopdf)                    date: 2020-12-07 21:14:54
 (epstopdf)                    size: 10935 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Figures/martele_spiccato
 _TFS_440-eps-converted-to.pdf ./Figures/martele_spiccato_TFS_440.eps>
@@ -1349,11 +1355,11 @@ Overfull \hbox (25.02023pt too wide) in paragraph at lines 354--354
  []
 
 Package epstopdf Info: Source file: <./Figures/martele_TFS_diff_440.eps>
-(epstopdf)                    date: 2020-12-07 22:17:07
+(epstopdf)                    date: 2020-12-07 14:21:38
 (epstopdf)                    size: 30916 bytes
 (epstopdf)             Output file: <./Figures/martele_TFS_diff_440-eps-convert
 ed-to.pdf>
-(epstopdf)                    date: 2020-12-07 22:17:07
+(epstopdf)                    date: 2020-12-07 21:13:58
 (epstopdf)                    size: 12166 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Figures/martele_TFS_diff
 _440-eps-converted-to.pdf ./Figures/martele_TFS_diff_440.eps>
@@ -1402,13 +1408,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 19465 strings out of 482811
- 372585 string characters out of 5955739
- 615912 words of memory out of 5000000
- 34276 multiletter control sequences out of 15000+600000
+ 19742 strings out of 480906
+ 379713 string characters out of 5910771
+ 624129 words of memory out of 5000000
+ 34791 multiletter control sequences out of 15000+600000
  542425 words of font info for 56 fonts, out of 8000000 for 9000
- 36 hyphenation exceptions out of 8191
- 59i,16n,62p,788b,582s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 1141 hyphenation exceptions out of 8191
+ 63i,16n,72p,788b,582s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texliv
@@ -1424,7 +1430,7 @@ ssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12
 /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on timbral_coding_labmtg.pdf (23 pages, 2074582 bytes).
+Output written on timbral_coding_labmtg.pdf (23 pages, 2074580 bytes).
 PDF statistics:
  389 PDF objects out of 1000 (max. 8388607)
  263 compressed objects within 3 object streams
