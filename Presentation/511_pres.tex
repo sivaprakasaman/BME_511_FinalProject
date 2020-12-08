@@ -45,7 +45,7 @@
 \begin{frame}
 \frametitle{Music Coding by the Auditory Periphery}
 
-\textit{To appreciate an art, we often must make use of one of our senses. But what happens when our senses are impaired? What kind of signals do we receive from our sensory inputs, and in what fidelity do we receive them? What musical features are most important for us to "lock on" to, and what happens when we can't lock on to them?}\vspace{.5em}
+\textit{To appreciate an art, we must first be able to sense it. But what happens when our senses are impaired? What kind of signals do we receive from our sensory inputs, and in what fidelity do we receive them? What musical features are most important for us to "lock on" to, and what happens when we can't lock on to them?}\vspace{.5em}
 
 \begin{itemize}[label = $\blacktriangleright$]
 \item Musical stimuli are not simple, they are \textbf{often non-periodic and spectrally complicated}
@@ -91,7 +91,7 @@ A start would be looking at how \textbf{\textit{\underline{timbre}}} is encoded 
 \end{itemize}
 \end{column}
 \begin{column}{0.6\textwidth}
-\includegraphics[width = 1.0\textwidth]{martele_spiccato_compare}
+\includegraphics[width = 1.0\textwidth]{mart_spic}
 \centering
 Envelope cues could help us differentiate between different articulations in music, such as \href{./Audio/martele.mp3}{\textit{martele}} and \href{./Audio/spiccato.mp3}{\textit{spiccato}} played by the violin
 \end{column}
@@ -136,6 +136,25 @@ Spectrograms are an useful tool to visualize differences in instruments. Here ar
 \includegraphics[height = .77\textheight]{methods_pics} \vspace{1em} 
 
 \end{frame}
+
+\begin{frame}
+\frametitle{Gammatone Filterbank and Envelope Extraction}
+\begin{columns}
+\begin{column}{.3\textwidth}
+\begin{itemize}[label = $\blacktriangleright$]
+\item Used a computationally efficient gammatone filterbank developed by Ning Ma \vspace{.5em}
+
+\item Filtered each stimulus using same CFs used for model \vspace{.5em}
+
+\item Extracted TFS and ENV of each channel using Hilbert analytical signal
+\end{itemize}
+\end{column}
+\begin{column}{.7\textwidth}
+\includegraphics[width = \textwidth]{filterbank}
+\end{column}
+\end{columns}
+\end{frame}
+
 
 \begin{frame}
 \frametitle{Modeling Approach}
@@ -203,12 +222,168 @@ A schematic of the original Zilany Model. Sound stimulus goes in, spike train co
 
 \end{frame}
 
-
 \begin{frame}
 \frametitle{Model Output}
-
 \includegraphics[width = .88\textwidth]{apPSTH_violin}
 \end{frame}
 
+\begin{frame}
+
+\frametitle{apPSTH Analysis}
+
+Used the rationale developed by Parida et al. to compute $s(t)$ and $\phi (t)$ and their spectrograms corresponding to ENV and TFS characteristics:\vspace{1em}
+
+\underline{ENV-related response, the \textit{sum} PSTH (polarity-tolerant):}\\
+\begin{center}
+\scalebox{1.2}{
+$s(t) = \frac{p(t)+n(t)}{2}$}
+\end{center}
+
+\underline{TFS-related response to PSTH (polarity-sensitive):}\\
+\begin{center}
+
+$\phi (t) = \sqrt{2} \times rms[d(t)] \times \cos[\angle d(t)]$\\
+\end{center}
+
+Where:
+ \begin{center}
+ \scalebox{1.2}{
+ $d(t) = \frac{p(t)-n(t)}{2}$}
+\end{center}
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Measuring the ``strength" of TFS/ENV Coding}
+
+The coding "strength" of the ENV and TFS nerve responses can then be assessed using either cross-spectral density or coherence with the Hilbert ENV or TFS. Magnitude-squared Coherence, $C_{xy}(f)$, is a nice way to compare these, since it is essentially a normalized cross-spectral density:\vspace{2em}
+
+\begin{center}
+\scalebox{1.5}{
+$C_{xy}(f) = \frac{|P_{xy}(f)^2|}{P_{xx}(f)P_{yy}(f)}$}
+\end{center}
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{ENV and TFS Coherence Across Instruments}
+
+\begin{columns}
+\begin{column}{0.55\textwidth}
+\includegraphics[scale = .4]{all_ENV_coherence_440}
+\end{column}
+\begin{column}{0.56\textwidth}
+\includegraphics[scale = .4]{all_TFS_coherence_440}
+\end{column}
+\end{columns}
+
+\end{frame}
+
+
+\begin{frame}
+
+\frametitle{ENV and TFS Coherence Across Instruments}
+
+\begin{columns}
+\begin{column}{0.55\textwidth}
+\includegraphics[scale = .4]{trombone_violin_ENV_coherence_440}
+\end{column}
+\begin{column}{0.56\textwidth}
+\includegraphics[scale = .4]{trombone_violin_TFS_coherence_440}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Effects of Hearing Loss on ENV and TFS Coherence} 
+
+\begin{columns}
+\begin{column}{0.55\textwidth}
+\includegraphics[scale = .4]{violin_ENV_COH_440}
+\end{column}
+\begin{column}{0.56\textwidth}
+\includegraphics[scale = .4]{violin_TFS_COH_440}
+\end{column}
+\end{columns}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Effects of Hearing Loss on ENV and TFS Coherence} 
+
+\begin{columns}
+\begin{column}{0.55\textwidth}
+\includegraphics[scale = .4]{violin_ENV_COH_3960}
+\end{column}
+\begin{column}{0.56\textwidth}
+\includegraphics[scale = .4]{violin_TFS_COH_3960}
+\end{column}
+\end{columns}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Hearing Loss May Effect Timbral Coding of ENV in Articulation} 
+
+\begin{columns}
+\begin{column}{0.55\textwidth}
+\includegraphics[scale = .4]{martele_spiccato_ENV_3960}
+\end{column}
+\begin{column}{0.56\textwidth}
+\includegraphics[scale = .4]{martele_ENV_diff}
+\end{column}
+\end{columns}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Hearing Loss May Not Affect Timbral Coding of TFS in Articulation} 
+
+\begin{columns}
+\begin{column}{0.55\textwidth}
+\includegraphics[scale = .4]{martele_spiccato_TFS_440}
+\end{column}
+\begin{column}{0.56\textwidth}
+\includegraphics[scale = .4]{martele_TFS_diff_440}
+\end{column}
+\end{columns}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Conclusion}
+\begin{itemize}[label = $\blacktriangleright$]
+\item A framework was designed to investigate TFS/ENV coding of timbre \vspace{.5em}
+\item The spectral composition of instrumental tones and articulation is non-trivial
+\vspace{.5em}
+\item Understanding the way we perceive sound beyond the auditory periphery is likely very important in solidifying the relevance of TFS/ENV in timbral perception
+\vspace{.5em}
+\item Even at the peripheral level, it appears coding of ENV and TFS is affected by hearing loss
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+
+\frametitle{Future Considerations/Work}
+
+\begin{itemize}[label = $\blacktriangleright$]
+\item There are a lot of coherence plots generated in my code
+\vspace{.5em}
+\item Knowing what I'm looking for and where to look is important
+\vspace{.5em}
+\item These timbral coding effects vary from instrument to instrument so finding a unifying, non-noisy, metric to measure across multiple conditions would be helpful
+\vspace{.5em}
+\item The framework used to analyze ENV/TFS coding can be extended to \textit{in vivo} auditory nerve measurements or non-invasive measures collected using EEG, so could be fun to try this in the lab
+\vspace{.5em}
+\end{itemize}
+\centering
+\vspace{.5em}
+\textbf{Questions/Other points of Discussion??}
+\end{frame}
 
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2020.10.30)  7 DEC 2020 18:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2020.10.30)  7 DEC 2020 21:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -892,28 +892,28 @@ line 79.
  [3
 
  <./Figures/fft_all-eps-converted-to.pdf>]
-Package epstopdf Info: Source file: <./Figures/martele_spiccato_compare.eps>
-(epstopdf)                    date: 2020-12-07 14:21:38
-(epstopdf)                    size: 529502 bytes
-(epstopdf)             Output file: <./Figures/martele_spiccato_compare-eps-con
-verted-to.pdf>
-(epstopdf)                    date: 2020-12-07 14:21:38
-(epstopdf)                    size: 127985 bytes
-(epstopdf)             Command: <repstopdf --outfile=./Figures/martele_spiccato
-_compare-eps-converted-to.pdf ./Figures/martele_spiccato_compare.eps>
+Package epstopdf Info: Source file: <./Figures/mart_spic.eps>
+(epstopdf)                    date: 2020-12-07 21:34:18
+(epstopdf)                    size: 190929 bytes
+(epstopdf)             Output file: <./Figures/mart_spic-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=./Figures/mart_spic-eps-co
+nverted-to.pdf ./Figures/mart_spic.eps>
 (epstopdf)             \includegraphics on input line 100.
-Package epstopdf Info: Output file is already uptodate.
-<./Figures/martele_spiccato_compare-eps-converted-to.pdf, id=56, 421.575pt x 31
-6.18124pt>
-File: ./Figures/martele_spiccato_compare-eps-converted-to.pdf Graphic file (typ
-e pdf)
-<use ./Figures/martele_spiccato_compare-eps-converted-to.pdf>
-Package pdftex.def Info: ./Figures/martele_spiccato_compare-eps-converted-to.pd
-f  used on input line 100.
-(pdftex.def)             Requested size: 239.00558pt x 179.25545pt.
+runsystem(repstopdf --outfile=./Figures/mart_spic-eps-converted-to.pdf ./Figure
+s/mart_spic.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <./Figures/mart_spic-eps-converted-to.pdf>
+(epstopdf)                    date: 2020-12-07 21:34:48
+(epstopdf)                    size: 68529 bytes.
+<./Figures/mart_spic-eps-converted-to.pdf, id=56, 414.54875pt x 315.1775pt>
+File: ./Figures/mart_spic-eps-converted-to.pdf Graphic file (type pdf)
+<use ./Figures/mart_spic-eps-converted-to.pdf>
+Package pdftex.def Info: ./Figures/mart_spic-eps-converted-to.pdf  used on inpu
+t line 100.
+(pdftex.def)             Requested size: 239.00558pt x 181.71138pt.
  [4
 
- <./Figures/martele_spiccato_compare-eps-converted-to.pdf>]
+ <./Figures/mart_spic-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./Figures/spectrogram_banjo_normal.eps>
 (epstopdf)                    date: 2020-12-07 17:40:00
 (epstopdf)                    size: 184386 bytes
@@ -991,7 +991,27 @@ Overfull \hbox (14.95349pt too wide) in paragraph at lines 138--138
 
 [7
 
- <./Figures/methods_pics.png>] [8
+ <./Figures/methods_pics.png>]
+Package epstopdf Info: Source file: <./Figures/filterbank.eps>
+(epstopdf)                    date: 2020-12-07 14:21:38
+(epstopdf)                    size: 376830 bytes
+(epstopdf)             Output file: <./Figures/filterbank-eps-converted-to.pdf>
+
+(epstopdf)                    date: 2020-12-07 19:16:57
+(epstopdf)                    size: 124218 bytes
+(epstopdf)             Command: <repstopdf --outfile=./Figures/filterbank-eps-c
+onverted-to.pdf ./Figures/filterbank.eps>
+(epstopdf)             \includegraphics on input line 156.
+Package epstopdf Info: Output file is already uptodate.
+<./Figures/filterbank-eps-converted-to.pdf, id=111, 421.575pt x 316.18124pt>
+File: ./Figures/filterbank-eps-converted-to.pdf Graphic file (type pdf)
+<use ./Figures/filterbank-eps-converted-to.pdf>
+Package pdftex.def Info: ./Figures/filterbank-eps-converted-to.pdf  used on inp
+ut line 156.
+(pdftex.def)             Requested size: 278.83578pt x 209.12894pt.
+ [8
+
+ <./Figures/filterbank-eps-converted-to.pdf>] [9
 
 ]
 Package epstopdf Info: Source file: <./Figures/audiogram.eps>
@@ -1002,25 +1022,25 @@ Package epstopdf Info: Source file: <./Figures/audiogram.eps>
 (epstopdf)                    size: 9975 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Figures/audiogram-eps-co
 nverted-to.pdf ./Figures/audiogram.eps>
-(epstopdf)             \includegraphics on input line 165.
+(epstopdf)             \includegraphics on input line 184.
 Package epstopdf Info: Output file is already uptodate.
-<./Figures/audiogram-eps-converted-to.pdf, id=118, 429.605pt x 312.16624pt>
+<./Figures/audiogram-eps-converted-to.pdf, id=131, 429.605pt x 312.16624pt>
 File: ./Figures/audiogram-eps-converted-to.pdf Graphic file (type pdf)
 <use ./Figures/audiogram-eps-converted-to.pdf>
 Package pdftex.def Info: ./Figures/audiogram-eps-converted-to.pdf  used on inpu
-t line 165.
+t line 184.
 (pdftex.def)             Requested size: 239.00558pt x 173.67348pt.
- [9
-
- <./Figures/audiogram-eps-converted-to.pdf>]
-<./Figures/bruce.png, id=131, 869.2475pt x 322.20375pt>
-File: ./Figures/bruce.png Graphic file (type png)
-<use ./Figures/bruce.png>
-Package pdftex.def Info: ./Figures/bruce.png  used on input line 177.
-(pdftex.def)             Requested size: 398.3386pt x 147.65504pt.
  [10
 
- <./Figures/bruce.png>] [11
+ <./Figures/audiogram-eps-converted-to.pdf>]
+<./Figures/bruce.png, id=144, 869.2475pt x 322.20375pt>
+File: ./Figures/bruce.png Graphic file (type png)
+<use ./Figures/bruce.png>
+Package pdftex.def Info: ./Figures/bruce.png  used on input line 196.
+(pdftex.def)             Requested size: 398.3386pt x 147.65504pt.
+ [11
+
+ <./Figures/bruce.png>] [12
 
 ]
 Package epstopdf Info: Source file: <./Figures/apPSTH_violin.eps>
@@ -1032,18 +1052,341 @@ df>
 (epstopdf)                    size: 167751 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Figures/apPSTH_violin-ep
 s-converted-to.pdf ./Figures/apPSTH_violin.eps>
-(epstopdf)             \includegraphics on input line 211.
+(epstopdf)             \includegraphics on input line 228.
 Package epstopdf Info: Output file is already uptodate.
-<./Figures/apPSTH_violin-eps-converted-to.pdf, id=144, 595.22375pt x 381.425pt>
+<./Figures/apPSTH_violin-eps-converted-to.pdf, id=157, 595.22375pt x 381.425pt>
 
 File: ./Figures/apPSTH_violin-eps-converted-to.pdf Graphic file (type pdf)
 <use ./Figures/apPSTH_violin-eps-converted-to.pdf>
 Package pdftex.def Info: ./Figures/apPSTH_violin-eps-converted-to.pdf  used on 
-input line 211.
+input line 228.
 (pdftex.def)             Requested size: 350.5399pt x 224.62556pt.
- [12
+ [13
 
- <./Figures/apPSTH_violin-eps-converted-to.pdf>]
+ <./Figures/apPSTH_violin-eps-converted-to.pdf>] [14
+
+] [15
+
+]
+Package epstopdf Info: Source file: <./Figures/all_ENV_coherence_440.eps>
+(epstopdf)                    date: 2020-12-07 14:21:38
+(epstopdf)                    size: 39477 bytes
+(epstopdf)             Output file: <./Figures/all_ENV_coherence_440-eps-conver
+ted-to.pdf>
+(epstopdf)                    date: 2020-12-07 20:13:38
+(epstopdf)                    size: 15613 bytes
+(epstopdf)             Command: <repstopdf --outfile=./Figures/all_ENV_coherenc
+e_440-eps-converted-to.pdf ./Figures/all_ENV_coherence_440.eps>
+(epstopdf)             \includegraphics on input line 282.
+Package epstopdf Info: Output file is already uptodate.
+<./Figures/all_ENV_coherence_440-eps-converted-to.pdf, id=188, 610.28pt x 447.6
+725pt>
+File: ./Figures/all_ENV_coherence_440-eps-converted-to.pdf Graphic file (type p
+df)
+<use ./Figures/all_ENV_coherence_440-eps-converted-to.pdf>
+Package pdftex.def Info: ./Figures/all_ENV_coherence_440-eps-converted-to.pdf  
+used on input line 282.
+(pdftex.def)             Requested size: 244.10767pt x 179.06583pt.
+
+Overfull \hbox (25.02023pt too wide) in paragraph at lines 282--282
+[][]  
+ []
+
+Package epstopdf Info: Source file: <./Figures/all_TFS_coherence_440.eps>
+(epstopdf)                    date: 2020-12-07 14:21:38
+(epstopdf)                    size: 27499 bytes
+(epstopdf)             Output file: <./Figures/all_TFS_coherence_440-eps-conver
+ted-to.pdf>
+(epstopdf)                    date: 2020-12-07 20:13:39
+(epstopdf)                    size: 12471 bytes
+(epstopdf)             Command: <repstopdf --outfile=./Figures/all_TFS_coherenc
+e_440-eps-converted-to.pdf ./Figures/all_TFS_coherence_440.eps>
+(epstopdf)             \includegraphics on input line 282.
+Package epstopdf Info: Output file is already uptodate.
+<./Figures/all_TFS_coherence_440-eps-converted-to.pdf, id=189, 602.25pt x 451.6
+875pt>
+File: ./Figures/all_TFS_coherence_440-eps-converted-to.pdf Graphic file (type p
+df)
+<use ./Figures/all_TFS_coherence_440-eps-converted-to.pdf>
+Package pdftex.def Info: ./Figures/all_TFS_coherence_440-eps-converted-to.pdf  
+used on input line 282.
+(pdftex.def)             Requested size: 240.89572pt x 180.67178pt.
+
+Overfull \hbox (17.82709pt too wide) in paragraph at lines 282--282
+[][]  
+ []
+
+[16
+
+ <./Figures/all_ENV_coherence_440-eps-converted-to.pdf> <./Figures/all_TFS_cohe
+rence_440-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <./Figures/trombone_violin_ENV_coherence_44
+0.eps>
+(epstopdf)                    date: 2020-12-07 14:21:38
+(epstopdf)                    size: 30457 bytes
+(epstopdf)             Output file: <./Figures/trombone_violin_ENV_coherence_44
+0-eps-converted-to.pdf>
+(epstopdf)                    date: 2020-12-07 20:13:40
+(epstopdf)                    size: 12387 bytes
+(epstopdf)             Command: <repstopdf --outfile=./Figures/trombone_violin_
+ENV_coherence_440-eps-converted-to.pdf ./Figures/trombone_violin_ENV_coherence_
+440.eps>
+(epstopdf)             \includegraphics on input line 297.
+Package epstopdf Info: Output file is already uptodate.
+<./Figures/trombone_violin_ENV_coherence_440-eps-converted-to.pdf, id=209, 610.
+28pt x 454.69875pt>
+File: ./Figures/trombone_violin_ENV_coherence_440-eps-converted-to.pdf Graphic 
+file (type pdf)
+<use ./Figures/trombone_violin_ENV_coherence_440-eps-converted-to.pdf>
+Package pdftex.def Info: ./Figures/trombone_violin_ENV_coherence_440-eps-conver
+ted-to.pdf  used on input line 297.
+(pdftex.def)             Requested size: 244.10767pt x 181.87627pt.
+
+Overfull \hbox (25.02023pt too wide) in paragraph at lines 297--297
+[][]  
+ []
+
+Package epstopdf Info: Source file: <./Figures/trombone_violin_TFS_coherence_44
+0.eps>
+(epstopdf)                    date: 2020-12-07 14:21:38
+(epstopdf)                    size: 23187 bytes
+(epstopdf)             Output file: <./Figures/trombone_violin_TFS_coherence_44
+0-eps-converted-to.pdf>
+(epstopdf)                    date: 2020-12-07 20:13:41
+(epstopdf)                    size: 10614 bytes
+(epstopdf)             Command: <repstopdf --outfile=./Figures/trombone_violin_
+TFS_coherence_440-eps-converted-to.pdf ./Figures/trombone_violin_TFS_coherence_
+440.eps>
+(epstopdf)             \includegraphics on input line 297.
+Package epstopdf Info: Output file is already uptodate.
+<./Figures/trombone_violin_TFS_coherence_440-eps-converted-to.pdf, id=210, 595.
+22375pt x 456.70625pt>
+File: ./Figures/trombone_violin_TFS_coherence_440-eps-converted-to.pdf Graphic 
+file (type pdf)
+<use ./Figures/trombone_violin_TFS_coherence_440-eps-converted-to.pdf>
+Package pdftex.def Info: ./Figures/trombone_violin_TFS_coherence_440-eps-conver
+ted-to.pdf  used on input line 297.
+(pdftex.def)             Requested size: 238.08528pt x 182.67926pt.
+
+Overfull \hbox (15.01665pt too wide) in paragraph at lines 297--297
+[][]  
+ []
+
+[17
+
+ <./Figures/trombone_violin_ENV_coherence_440-eps-converted-to.pdf> <./Figures/
+trombone_violin_TFS_coherence_440-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <./Figures/violin_ENV_COH_440.eps>
+(epstopdf)                    date: 2020-12-07 14:21:38
+(epstopdf)                    size: 40209 bytes
+(epstopdf)             Output file: <./Figures/violin_ENV_COH_440-eps-converted
+-to.pdf>
+(epstopdf)                    date: 2020-12-07 20:52:10
+(epstopdf)                    size: 14338 bytes
+(epstopdf)             Command: <repstopdf --outfile=./Figures/violin_ENV_COH_4
+40-eps-converted-to.pdf ./Figures/violin_ENV_COH_440.eps>
+(epstopdf)             \includegraphics on input line 311.
+Package epstopdf Info: Output file is already uptodate.
+<./Figures/violin_ENV_COH_440-eps-converted-to.pdf, id=230, 602.25pt x 451.6875
+pt>
+File: ./Figures/violin_ENV_COH_440-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./Figures/violin_ENV_COH_440-eps-converted-to.pdf>
+Package pdftex.def Info: ./Figures/violin_ENV_COH_440-eps-converted-to.pdf  use
+d on input line 311.
+(pdftex.def)             Requested size: 240.89572pt x 180.67178pt.
+
+Overfull \hbox (21.80829pt too wide) in paragraph at lines 311--311
+[][]  
+ []
+
+Package epstopdf Info: Source file: <./Figures/violin_TFS_COH_440.eps>
+(epstopdf)                    date: 2020-12-07 14:21:38
+(epstopdf)                    size: 30210 bytes
+(epstopdf)             Output file: <./Figures/violin_TFS_COH_440-eps-converted
+-to.pdf>
+(epstopdf)                    date: 2020-12-07 20:55:10
+(epstopdf)                    size: 11945 bytes
+(epstopdf)             Command: <repstopdf --outfile=./Figures/violin_TFS_COH_4
+40-eps-converted-to.pdf ./Figures/violin_TFS_COH_440.eps>
+(epstopdf)             \includegraphics on input line 311.
+Package epstopdf Info: Output file is already uptodate.
+<./Figures/violin_TFS_COH_440-eps-converted-to.pdf, id=231, 595.22375pt x 456.7
+0625pt>
+File: ./Figures/violin_TFS_COH_440-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./Figures/violin_TFS_COH_440-eps-converted-to.pdf>
+Package pdftex.def Info: ./Figures/violin_TFS_COH_440-eps-converted-to.pdf  use
+d on input line 311.
+(pdftex.def)             Requested size: 238.08528pt x 182.67926pt.
+
+Overfull \hbox (15.01665pt too wide) in paragraph at lines 311--311
+[][]  
+ []
+
+[18
+
+ <./Figures/violin_ENV_COH_440-eps-converted-to.pdf> <./Figures/violin_TFS_COH_
+440-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <./Figures/violin_ENV_COH_3960.eps>
+(epstopdf)                    date: 2020-12-07 14:21:38
+(epstopdf)                    size: 121698 bytes
+(epstopdf)             Output file: <./Figures/violin_ENV_COH_3960-eps-converte
+d-to.pdf>
+(epstopdf)                    date: 2020-12-07 20:57:24
+(epstopdf)                    size: 43296 bytes
+(epstopdf)             Command: <repstopdf --outfile=./Figures/violin_ENV_COH_3
+960-eps-converted-to.pdf ./Figures/violin_ENV_COH_3960.eps>
+(epstopdf)             \includegraphics on input line 325.
+Package epstopdf Info: Output file is already uptodate.
+<./Figures/violin_ENV_COH_3960-eps-converted-to.pdf, id=251, 610.28pt x 447.672
+5pt>
+File: ./Figures/violin_ENV_COH_3960-eps-converted-to.pdf Graphic file (type pdf
+)
+<use ./Figures/violin_ENV_COH_3960-eps-converted-to.pdf>
+Package pdftex.def Info: ./Figures/violin_ENV_COH_3960-eps-converted-to.pdf  us
+ed on input line 325.
+(pdftex.def)             Requested size: 244.10767pt x 179.06583pt.
+
+Overfull \hbox (25.02023pt too wide) in paragraph at lines 325--325
+[][]  
+ []
+
+Package epstopdf Info: Source file: <./Figures/violin_TFS_COH_3960.eps>
+(epstopdf)                    date: 2020-12-07 14:21:38
+(epstopdf)                    size: 30261 bytes
+(epstopdf)             Output file: <./Figures/violin_TFS_COH_3960-eps-converte
+d-to.pdf>
+(epstopdf)                    date: 2020-12-07 20:57:25
+(epstopdf)                    size: 12060 bytes
+(epstopdf)             Command: <repstopdf --outfile=./Figures/violin_TFS_COH_3
+960-eps-converted-to.pdf ./Figures/violin_TFS_COH_3960.eps>
+(epstopdf)             \includegraphics on input line 325.
+Package epstopdf Info: Output file is already uptodate.
+<./Figures/violin_TFS_COH_3960-eps-converted-to.pdf, id=252, 595.22375pt x 456.
+70625pt>
+File: ./Figures/violin_TFS_COH_3960-eps-converted-to.pdf Graphic file (type pdf
+)
+<use ./Figures/violin_TFS_COH_3960-eps-converted-to.pdf>
+Package pdftex.def Info: ./Figures/violin_TFS_COH_3960-eps-converted-to.pdf  us
+ed on input line 325.
+(pdftex.def)             Requested size: 238.08528pt x 182.67926pt.
+
+Overfull \hbox (15.01665pt too wide) in paragraph at lines 325--325
+[][]  
+ []
+
+[19
+
+ <./Figures/violin_ENV_COH_3960-eps-converted-to.pdf> <./Figures/violin_TFS_COH
+_3960-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <./Figures/martele_spiccato_ENV_3960.eps>
+(epstopdf)                    date: 2020-12-07 14:21:38
+(epstopdf)                    size: 82237 bytes
+(epstopdf)             Output file: <./Figures/martele_spiccato_ENV_3960-eps-co
+nverted-to.pdf>
+(epstopdf)                    date: 2020-12-07 21:10:34
+(epstopdf)                    size: 31445 bytes
+(epstopdf)             Command: <repstopdf --outfile=./Figures/martele_spiccato
+_ENV_3960-eps-converted-to.pdf ./Figures/martele_spiccato_ENV_3960.eps>
+(epstopdf)             \includegraphics on input line 339.
+Package epstopdf Info: Output file is already uptodate.
+<./Figures/martele_spiccato_ENV_3960-eps-converted-to.pdf, id=273, 610.28pt x 4
+47.6725pt>
+File: ./Figures/martele_spiccato_ENV_3960-eps-converted-to.pdf Graphic file (ty
+pe pdf)
+<use ./Figures/martele_spiccato_ENV_3960-eps-converted-to.pdf>
+Package pdftex.def Info: ./Figures/martele_spiccato_ENV_3960-eps-converted-to.p
+df  used on input line 339.
+(pdftex.def)             Requested size: 244.10767pt x 179.06583pt.
+
+Overfull \hbox (25.02023pt too wide) in paragraph at lines 339--339
+[][]  
+ []
+
+Package epstopdf Info: Source file: <./Figures/martele_ENV_diff.eps>
+(epstopdf)                    date: 2020-12-07 14:21:38
+(epstopdf)                    size: 121740 bytes
+(epstopdf)             Output file: <./Figures/martele_ENV_diff-eps-converted-t
+o.pdf>
+(epstopdf)                    date: 2020-12-07 21:10:36
+(epstopdf)                    size: 43316 bytes
+(epstopdf)             Command: <repstopdf --outfile=./Figures/martele_ENV_diff
+-eps-converted-to.pdf ./Figures/martele_ENV_diff.eps>
+(epstopdf)             \includegraphics on input line 339.
+Package epstopdf Info: Output file is already uptodate.
+<./Figures/martele_ENV_diff-eps-converted-to.pdf, id=274, 610.28pt x 447.6725pt
+>
+File: ./Figures/martele_ENV_diff-eps-converted-to.pdf Graphic file (type pdf)
+<use ./Figures/martele_ENV_diff-eps-converted-to.pdf>
+Package pdftex.def Info: ./Figures/martele_ENV_diff-eps-converted-to.pdf  used 
+on input line 339.
+(pdftex.def)             Requested size: 244.10767pt x 179.06583pt.
+
+Overfull \hbox (21.03903pt too wide) in paragraph at lines 339--339
+[][]  
+ []
+
+[20
+
+ <./Figures/martele_spiccato_ENV_3960-eps-converted-to.pdf> <./Figures/martele_
+ENV_diff-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <./Figures/martele_spiccato_TFS_440.eps>
+(epstopdf)                    date: 2020-12-07 14:21:38
+(epstopdf)                    size: 23934 bytes
+(epstopdf)             Output file: <./Figures/martele_spiccato_TFS_440-eps-con
+verted-to.pdf>
+(epstopdf)                    date: 2020-12-07 21:14:54
+(epstopdf)                    size: 10935 bytes
+(epstopdf)             Command: <repstopdf --outfile=./Figures/martele_spiccato
+_TFS_440-eps-converted-to.pdf ./Figures/martele_spiccato_TFS_440.eps>
+(epstopdf)             \includegraphics on input line 354.
+Package epstopdf Info: Output file is already uptodate.
+<./Figures/martele_spiccato_TFS_440-eps-converted-to.pdf, id=294, 610.28pt x 44
+7.6725pt>
+File: ./Figures/martele_spiccato_TFS_440-eps-converted-to.pdf Graphic file (typ
+e pdf)
+<use ./Figures/martele_spiccato_TFS_440-eps-converted-to.pdf>
+Package pdftex.def Info: ./Figures/martele_spiccato_TFS_440-eps-converted-to.pd
+f  used on input line 354.
+(pdftex.def)             Requested size: 244.10767pt x 179.06583pt.
+
+Overfull \hbox (25.02023pt too wide) in paragraph at lines 354--354
+[][]  
+ []
+
+Package epstopdf Info: Source file: <./Figures/martele_TFS_diff_440.eps>
+(epstopdf)                    date: 2020-12-07 14:21:38
+(epstopdf)                    size: 30916 bytes
+(epstopdf)             Output file: <./Figures/martele_TFS_diff_440-eps-convert
+ed-to.pdf>
+(epstopdf)                    date: 2020-12-07 21:13:58
+(epstopdf)                    size: 12166 bytes
+(epstopdf)             Command: <repstopdf --outfile=./Figures/martele_TFS_diff
+_440-eps-converted-to.pdf ./Figures/martele_TFS_diff_440.eps>
+(epstopdf)             \includegraphics on input line 354.
+Package epstopdf Info: Output file is already uptodate.
+<./Figures/martele_TFS_diff_440-eps-converted-to.pdf, id=295, 595.22375pt x 456
+.70625pt>
+File: ./Figures/martele_TFS_diff_440-eps-converted-to.pdf Graphic file (type pd
+f)
+<use ./Figures/martele_TFS_diff_440-eps-converted-to.pdf>
+Package pdftex.def Info: ./Figures/martele_TFS_diff_440-eps-converted-to.pdf  u
+sed on input line 354.
+(pdftex.def)             Requested size: 238.08528pt x 182.67926pt.
+
+Overfull \hbox (15.01665pt too wide) in paragraph at lines 354--354
+[][]  
+ []
+
+[21
+
+ <./Figures/martele_spiccato_TFS_440-eps-converted-to.pdf> <./Figures/martele_T
+FS_diff_440-eps-converted-to.pdf>] [22
+
+] [23
+
+]
 \tf@nav=\write6
 \openout6 = `511_pres.nav'.
 
@@ -1053,11 +1396,11 @@ input line 211.
 \tf@snm=\write8
 \openout8 = `511_pres.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 214.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 214.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 389.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 389.
  (./511_pres.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 214.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 214.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 389.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 389.
 Package rerunfilecheck Info: File `511_pres.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
@@ -1066,27 +1409,32 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 19451 strings out of 480906
- 371061 string characters out of 5910771
+ 19742 strings out of 480906
+ 379453 string characters out of 5910771
  624172 words of memory out of 5000000
- 34522 multiletter control sequences out of 15000+600000
+ 34791 multiletter control sequences out of 15000+600000
  542425 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  63i,16n,72p,775b,582s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmssi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/symbols/msam10.pfb>
-Output written on 511_pres.pdf (12 pages, 1765886 bytes).
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+ssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on 511_pres.pdf (23 pages, 2074492 bytes).
 PDF statistics:
- 198 PDF objects out of 1000 (max. 8388607)
- 129 compressed objects within 2 object streams
- 25 named destinations out of 1000 (max. 500000)
- 124 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 389 PDF objects out of 1000 (max. 8388607)
+ 263 compressed objects within 3 object streams
+ 47 named destinations out of 1000 (max. 500000)
+ 189 words of extra memory for PDF output out of 10000 (max. 10000000)
 
