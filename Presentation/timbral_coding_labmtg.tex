@@ -34,7 +34,7 @@
 }
 
 \title{Exploring the Role of Temporal Fine Structure and Envelope in Timbral Coding}
-\author{Presented By Andrew Sivaprakasam| BME 511 Fall 2020}
+\author{Presented By Andrew Sivaprakasam}
 
 \date{12/07/2020}
 
@@ -45,13 +45,13 @@
 \begin{frame}
 \frametitle{Music Coding by the Auditory Periphery}
 
-\textit{To appreciate an art, we must first be able to sense it. But what happens when our senses are impaired? What kind of signals do we receive from our sensory inputs, and in what fidelity do we receive them? What musical features are most important for us to ``lock on" to, and what happens when we can't lock on to them?}\vspace{.5em}
+\textit{To appreciate an art, we must first be able to sense it. But what happens when our senses are impaired? What kind of signals do we receive from our sensory inputs, and in what fidelity do we receive them? What musical features are most important for us to "lock on" to, and what happens when we can't lock on to them?}\vspace{.5em}
 
 \begin{itemize}[label = $\blacktriangleright$]
 \item Musical stimuli are not simple, they are \textbf{often non-periodic and spectrally complicated}
 \item If we look \textit{purely} at how we encode components of music, and how important the fidelity we encode those components is, \textbf{we can drive innovative processing algorithms used in hearing aids and cochlear implants to better represent musical sounds}\vspace{1em}
 
-A start would be looking at how \textbf{\textit{\underline{timbre}}} is encoded by the auditory system, and what the signals ``look like" before being sent to the brain
+A start would be looking at how \textbf{\textit{\underline{timbre}}} is encoded by the auditory system, and what the signals "look like" before being sent to the brain
 
 \end{itemize}
 \end{frame}
@@ -137,23 +137,23 @@ Spectrograms are an useful tool to visualize differences in instruments. Here ar
 
 \end{frame}
 
-%\begin{frame}
-%\frametitle{Gammatone Filterbank and Envelope Extraction}
-%\begin{columns}
-%\begin{column}{.3\textwidth}
-%\begin{itemize}[label = $\blacktriangleright$]
-%\item Used a computationally efficient gammatone filterbank developed by Ning Ma \vspace{.5em}
-%
-%\item Filtered each stimulus using same CFs used for model \vspace{.5em}
-%
-%\item Extracted TFS and ENV of each channel using Hilbert analytical signal
-%\end{itemize}
-%\end{column}
-%\begin{column}{.7\textwidth}
-%\includegraphics[width = \textwidth]{filterbank}
-%\end{column}
-%\end{columns}
-%\end{frame}
+\begin{frame}
+\frametitle{Gammatone Filterbank and Envelope Extraction}
+\begin{columns}
+\begin{column}{.3\textwidth}
+\begin{itemize}[label = $\blacktriangleright$]
+\item Used a computationally efficient gammatone filterbank developed by Ning Ma \vspace{.5em}
+
+\item Filtered each stimulus using same CFs used for model \vspace{.5em}
+
+\item Extracted TFS and ENV of each channel using Hilbert analytical signal
+\end{itemize}
+\end{column}
+\begin{column}{.7\textwidth}
+\includegraphics[width = \textwidth]{filterbank}
+\end{column}
+\end{columns}
+\end{frame}
 
 
 \begin{frame}
@@ -174,103 +174,90 @@ Spectrograms are an useful tool to visualize differences in instruments. Here ar
 
 \end{frame}
 
-%\begin{frame}
-%\frametitle{Modeling Approach}
-%This model also allowed adjustment of Outer Hair Cell and Inner Hair Cell parameters based on an audiogram. I chose hearing loss threshold shifts roughly based on data reported by Tufts et al. in a 2005 study of musical interval consonance:\vspace{1em} 
-%
-%\centering
-%\includegraphics[width = .6\textwidth]{audiogram} 
-%
-%\end{frame}
+\begin{frame}
+\frametitle{Modeling Approach}
+This model also allowed adjustment of Outer Hair Cell and Inner Hair Cell parameters based on an audiogram. I chose hearing loss threshold shifts roughly based on data reported by Tufts et al. in a 2005 study of musical interval consonance:\vspace{1em} 
 
-%\begin{frame}
-%\frametitle{Modeling Approach}
-%
-%
-%\centering
-%
-%\includegraphics[width = 1\textwidth]{bruce} \vspace{.5em}
-% 
-%A schematic of the original Zilany Model. Sound stimulus goes in, spike train comes out. 
-%
-%\end{frame}
+\centering
+\includegraphics[width = .6\textwidth]{audiogram} 
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Modeling Approach}
 
 
-%\begin{frame}
-%\frametitle{Model Parameters and Implementation}
-%\textbf{Using BEZ2018 Model:}\vspace{.5em}
-%
-%\begin{itemize}
-%\item \textbf{\underline{Parameters:}}
-%\begin{itemize}[label = $\blacktriangleright$]
-%\item CF (Hz) = 125, 440, 880, 3960
-%\item Repetitions/CF = 75
-%\item Spont. Rate = 70
-%\item Abs and Baseline mean relative refrac. period = 0.6 ms
-%\item IHC/OHC health = set by \texttt{fitaudiogram2}
-%\item Species = Human - Shera tuning
-%\item Fractional Gauss. noise type = 0 (fixed)
-%\item Power-law functions = 0 (approximate)
-%\item \textbf{Spike time resolution = 10} $\mu$s
-%\end{itemize}\vspace{.5em}
-%
-%\item \textbf{\underline{Other Details:}}
-%\begin{itemize}[label = $\blacktriangleright$]
-%\item Compensated for threshold shift in Hearing Loss condition by increasing stimulus gain by mean threshold shift (43.75 dB)
-%\end{itemize}
-%\end{itemize}
-%
-%\end{frame}
+\centering
+
+\includegraphics[width = 1\textwidth]{bruce} \vspace{.5em}
+ 
+A schematic of the original Zilany Model. Sound stimulus goes in, spike train comes out. 
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Model Parameters and Implementation}
+\textbf{Using BEZ2018 Model:}\vspace{.5em}
+
+\begin{itemize}
+\item \textbf{\underline{Parameters:}}
+\begin{itemize}[label = $\blacktriangleright$]
+\item CF (Hz) = 125, 440, 880, 3960
+\item Repetitions/CF = 75
+\item Spont. Rate = 70
+\item Abs and Baseline mean relative refrac. period = 0.6 ms
+\item IHC/OHC health = set by \texttt{fitaudiogram2}
+\item Species = Human - Shera tuning
+\item Fractional Gauss. noise type = 0 (fixed)
+\item Power-law functions = 0 (approximate)
+\item \textbf{Spike time resolution = 10} $\mu$s
+\end{itemize}\vspace{.5em}
+
+\item \textbf{\underline{Other Details:}}
+\begin{itemize}[label = $\blacktriangleright$]
+\item Compensated for threshold shift in Hearing Loss condition by increasing stimulus gain by mean threshold shift (43.75 dB)
+\end{itemize}
+\end{itemize}
+
+\end{frame}
 
 \begin{frame}
 \frametitle{Model Output}
 \includegraphics[width = .88\textwidth]{apPSTH_violin}
 \end{frame}
 
-%\begin{frame}
-%
-%\frametitle{apPSTH Analysis}
-%
-%Used the rationale developed by Parida et al. to compute $s(t)$ and $\phi (t)$ and their spectrograms corresponding to ENV and TFS characteristics:\vspace{1em}
-%
-%\underline{ENV-related response, the \textit{sum} PSTH (polarity-tolerant):}\\
-%\begin{center}
-%\scalebox{1.2}{
-%$s(t) = \frac{p(t)+n(t)}{2}$}
-%\end{center}
-%
-%\underline{TFS-related response to PSTH (polarity-sensitive):}\\
-%\begin{center}
-%
-%$\phi (t) = \sqrt{2} \times rms[d(t)] \times \cos[\angle d(t)]$\\
-%\end{center}
-%
-%Where:
-% \begin{center}
-% \scalebox{1.2}{
-% $d(t) = \frac{p(t)-n(t)}{2}$}
-%\end{center}
-%
-%\end{frame}
-
 \begin{frame}
-\frametitle{Why Use Different Polarities?}
 
-Using alternate polarities allows us to isolate the effects of the envelope of a stimulus (the polarity-tolerant component) and the temporal fine structure (the polarity-sensitive component).\vspace{1em}
+\frametitle{apPSTH Analysis}
 
-By summating the responses to both polarities (and dividing by two) the envelope response can be isolated, while taking the difference removes the envelope and isolates the fine structure.\\
+Used the rationale developed by Parida et al. to compute $s(t)$ and $\phi (t)$ and their spectrograms corresponding to ENV and TFS characteristics:\vspace{1em}
 
-\centering
-\includegraphics[width = .8\textwidth]{ap_demo}
+\underline{ENV-related response, the \textit{sum} PSTH (polarity-tolerant):}\\
+\begin{center}
+\scalebox{1.2}{
+$s(t) = \frac{p(t)+n(t)}{2}$}
+\end{center}
+
+\underline{TFS-related response to PSTH (polarity-sensitive):}\\
+\begin{center}
+
+$\phi (t) = \sqrt{2} \times rms[d(t)] \times \cos[\angle d(t)]$\\
+\end{center}
+
+Where:
+ \begin{center}
+ \scalebox{1.2}{
+ $d(t) = \frac{p(t)-n(t)}{2}$}
+\end{center}
 
 \end{frame}
 
-
 \begin{frame}
 
-\frametitle{Measuring the ``Strength" of TFS/ENV Coding}
+\frametitle{Measuring the ``strength" of TFS/ENV Coding}
 
-The coding "strength" of the ENV and TFS nerve responses can then be assessed using either cross-spectral density or coherence with the Hilbert ENV or TFS. Magnitude-squared Coherence, $C_{xy}(f)$, is a nice way to compare these, since it is essentially a normalized cross-spectral density:\vspace{2em}
+The coding ``strength" of the ENV and TFS nerve responses can then be assessed using either cross-spectral density or coherence with the Hilbert ENV or TFS. Magnitude-squared Coherence, $C_{xy}(f)$, is a nice way to compare these, since it is essentially a normalized cross-spectral density:\vspace{2em}
 
 \begin{center}
 \scalebox{1.5}{
@@ -279,25 +266,25 @@ $C_{xy}(f) = \frac{|P_{xy}(f)^2|}{P_{xx}(f)P_{yy}(f)}$}
 
 \end{frame}
 
-%\begin{frame}
-%
-%\frametitle{ENV and TFS Coherence Across Instruments Is Complex}
-%
-%\begin{columns}
-%\begin{column}{0.55\textwidth}
-%\includegraphics[scale = .4]{all_ENV_coherence_440}
-%\end{column}
-%\begin{column}{0.56\textwidth}
-%\includegraphics[scale = .4]{all_TFS_coherence_440}
-%\end{column}
-%\end{columns}
-%
-%\end{frame}
+\begin{frame}
+
+\frametitle{ENV and TFS Coherence Across Instruments}
+
+\begin{columns}
+\begin{column}{0.55\textwidth}
+\includegraphics[scale = .4]{all_ENV_coherence_440}
+\end{column}
+\begin{column}{0.56\textwidth}
+\includegraphics[scale = .4]{all_TFS_coherence_440}
+\end{column}
+\end{columns}
+
+\end{frame}
 
 
 \begin{frame}
 
-\frametitle{ENV and TFS Coherence Across Two Instruments}
+\frametitle{ENV and TFS Coherence Across Instruments}
 
 \begin{columns}
 \begin{column}{0.55\textwidth}
@@ -309,19 +296,19 @@ $C_{xy}(f) = \frac{|P_{xy}(f)^2|}{P_{xx}(f)P_{yy}(f)}$}
 \end{columns}
 \end{frame}
 
-%\begin{frame}
-%\frametitle{Effects of Hearing Loss on ENV and TFS Coherence} 
-%
-%\begin{columns}
-%\begin{column}{0.55\textwidth}
-%\includegraphics[scale = .4]{violin_ENV_COH_440}
-%\end{column}
-%\begin{column}{0.56\textwidth}
-%\includegraphics[scale = .4]{violin_TFS_COH_440}
-%\end{column}
-%\end{columns}
-%
-%\end{frame}
+\begin{frame}
+\frametitle{Effects of Hearing Loss on ENV and TFS Coherence} 
+
+\begin{columns}
+\begin{column}{0.55\textwidth}
+\includegraphics[scale = .4]{violin_ENV_COH_440}
+\end{column}
+\begin{column}{0.56\textwidth}
+\includegraphics[scale = .4]{violin_TFS_COH_440}
+\end{column}
+\end{columns}
+
+\end{frame}
 
 \begin{frame}
 \frametitle{Effects of Hearing Loss on ENV and TFS Coherence} 
@@ -351,20 +338,20 @@ $C_{xy}(f) = \frac{|P_{xy}(f)^2|}{P_{xx}(f)P_{yy}(f)}$}
 
 \end{frame}
 
-%
-%\begin{frame}
-%\frametitle{Hearing Loss May Not Affect Timbral Coding of TFS in Articulation} 
-%
-%\begin{columns}
-%\begin{column}{0.55\textwidth}
-%\includegraphics[scale = .4]{martele_spiccato_TFS_440}
-%\end{column}
-%\begin{column}{0.56\textwidth}
-%\includegraphics[scale = .4]{martele_TFS_diff_440}
-%\end{column}
-%\end{columns}
-%
-%\end{frame}
+
+\begin{frame}
+\frametitle{Hearing Loss May Not Affect Timbral Coding of TFS in Articulation} 
+
+\begin{columns}
+\begin{column}{0.55\textwidth}
+\includegraphics[scale = .4]{martele_spiccato_TFS_440}
+\end{column}
+\begin{column}{0.56\textwidth}
+\includegraphics[scale = .4]{martele_TFS_diff_440}
+\end{column}
+\end{columns}
+
+\end{frame}
 
 \begin{frame}
 \frametitle{Conclusion}
@@ -374,33 +361,33 @@ $C_{xy}(f) = \frac{|P_{xy}(f)^2|}{P_{xx}(f)P_{yy}(f)}$}
 \vspace{.5em}
 \item Understanding the way we perceive sound beyond the auditory periphery is likely very important in solidifying the relevance of TFS/ENV in timbral perception
 \vspace{.5em}
-\item Even at the peripheral level, it appears coding of ENV and TFS is affected by hearing loss
+\item Even at the peripheral level, it appears coding of ENV and TFS may be affected by hearing loss
 \vspace{.5em}
-\item There are a lot of coherence plots in my code, so finding a unifying metric to analyze across conditions would be useful
-\vspace{.5em}
-\item The framework used here can be extended to look at EEG measures \textit{in vivo} or compared to auditory nerve experiments
+\item The framework used to analyze ENV/TFS coding can be extended to \textit{in vivo} auditory nerve measurements or non-invasive measures collected using EEG, so could be fun to try this in the lab
 \end{itemize}
 
 \end{frame}
 
 
-%\begin{frame}
-%
-%\frametitle{Future Considerations/Work}
-%
-%\begin{itemize}[label = $\blacktriangleright$]
-%\item There are a lot of coherence plots generated in my code
-%\vspace{.5em}
-%\item Knowing what I'm looking for and where to look is important
-%\vspace{.5em}
-%\item These timbral coding effects vary from instrument to instrument so finding a unifying, non-noisy, metric to measure across multiple conditions would be helpful
-%\vspace{.5em}
-%\item The framework used to analyze ENV/TFS coding can be extended to \textit{in vivo} auditory nerve measurements or non-invasive measures collected using EEG, so could be fun to try this in the lab
-%\vspace{.5em}
-%\end{itemize}
-%%\centering
-%%\vspace{.5em}
-%%\textbf{Questions/Other points of Discussion??}
-%\end{frame}
+\begin{frame}
+
+\frametitle{Future Considerations/Work}
+
+\begin{itemize}[label = $\blacktriangleright$]
+\item There are a lot of coherence plots I can generate with my code...but how to sort through them
+\vspace{.5em}
+\item These timbral coding effects vary from instrument to instrument so finding a unifying, non-noisy, metric to measure across multiple conditions would be helpful
+\vspace{.5em}
+\item Other parameters to mess with? Any shortcomings of model to consider?
+\vspace{.5em}
+\item How can I reduce variance in the coherence? Multi-tapered Coherence? 
+\vspace{.5em}
+\item Worth studying further? Other ideas of things to look at?
+\end{itemize}
+
+\centering
+\vspace{2em}
+\textbf{Questions/Other points of Discussion??}
+\end{frame}
 
 \end{document}
