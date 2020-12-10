@@ -54,13 +54,13 @@ modelParams.buffer = 2;
 %% Stimuli Initialization:
 
 %Instrument
-%instruments = ["banjo","clarinet","flute","trombone","violin"];
+instruments = ["banjo","clarinet","flute","trombone","violin"];
 %instruments = ["banjo"];
 %instruments = ["SAM Tone"];
 
 %ARTICULATION
-instruments = ["Spiccato","Martele"];
-articulations = ["violin_A4_phrase_forte_arco-spiccato.mp3","violin_A4_phrase_forte_arco-martele.mp3"];
+%instruments = ["Spiccato","Martele"];
+%articulations = ["violin_A4_phrase_forte_arco-spiccato.mp3","violin_A4_phrase_forte_arco-martele.mp3"];
 
 pitch = 'A4';
 cond = 'normal';
@@ -102,10 +102,10 @@ wb = waitbar(0,'Starting Data Processing...');
 for i = 1:l_instr
    
     %instrument comparison
-    %filename = strcat(instruments(i),'_',pitch,'_',cond,'.mp3');
+    filename = strcat(instruments(i),'_',pitch,'_',cond,'.mp3');
     
     %articulation comparison
-    filename = articulations(i);
+    %filename = articulations(i);
     
     %test
     %filename = 'SAM_test.wav';
@@ -171,8 +171,9 @@ box on;
 
 %% Plot Params:
 
-instrum = 2;
-CF_ind = 4;
+instrum = 5;
+CF_ind = 2;
+FontSize = 11;
 
 %% Gammatone:
 figure;
@@ -181,6 +182,7 @@ for i = 1:length(CF)
     plot(bankedSig{instrum}(i,:),'k')
     xlim([0,dur{instrum}*input_fs]);
     title(strcat('CF = ',num2str(CF(i))));
+    set(gca, 'FontSize',FontSize);
 end
  
 xlabel('Sample #');
@@ -214,7 +216,7 @@ xlim(ceil(tt([1 end])*1e3))
 ylim([-2000,2000]);
 title('apPSTH | Normal Hearing')
 legend('(+)','( - )')
-set(gca, 'FontSize',10);
+set(gca, 'FontSize',FontSize);
 
 
 subplot(3,1,2);
@@ -223,24 +225,24 @@ plot(tvect*1e3, i_psth_pos{instrum}(CF_ind,:)/modelParams.reps/modelParams.psthb
 plot(tvect*1e3, -i_psth_neg{instrum}(CF_ind,:)/modelParams.reps/modelParams.psthbinwidth) % Plot of estimated mean spike rate
 hold off
 
-ylabel('Firing Rate (/s)')
+y1 = ylabel('Firing Rate (/s)');
 xlim(ceil(tt([1 end])*1e3))
 ylim([-2000,2000]);
 title('apPSTH | Impaired Hearing')
-set(gca, 'FontSize',10);
+set(gca, 'FontSize',FontSize);
 
 subplot(3,1,3);
 hold on
 plot(tt*1e3, px,'k');
 plot(tenv*1e3, px_env,'r','LineWidth',1.5);
 hold off
-ylabel('Pressure (Pa)')
+y2 = ylabel('Pressure (Pa)');
 xlabel('Time (ms)')
 title(strcat(instruments(instrum),' (Filtered at CF)'))
 legend('Stimulus','Envelope')
-set(gca, 'FontSize',10);
-
-set(gcf,'Position',[1200, 500, 800, 500]);
+set(gca, 'FontSize',FontSize);
+set(y2,'Position',[y1.Position(1),y2.Position(2),y2.Position(3)]);
+set(gcf,'Position',[1200, 500, 600, 500]);
 
 %% Coherence Normal Hearing across Instruments
 
@@ -514,7 +516,7 @@ legend('NH minus HL Coherence');
 set(gca, 'XScale', 'log')
 xlabel('Frequency (Hz)');
 ylabel('Difference (dB/Hz)');
-set(gca, 'FontSize',10);
+set(gca, 'FontSize',FontSize);
 box on;
 grid on;
 set(gcf,'Position',[1200, 300, 800, 600]);

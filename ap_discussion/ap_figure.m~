@@ -1,7 +1,0 @@
-%show alternating polarity/env/tfs relationship
-t = (1:1000)/1000;
-cr = 200;
-mod = 2;
-
-p = (sin(2.*pi.*mod.*t)+1).*sin(2.*pi.*cr.*t); 
-plot(t,p)
