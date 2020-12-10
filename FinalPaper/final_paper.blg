@@ -1,97 +1,54 @@
 This is BibTeX, Version 0.99d (TeX Live 2020/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: final_paper.aux
-<<<<<<< HEAD
-I found no \bibdata command---while reading file final_paper.aux
-I found no \bibstyle command---while reading file final_paper.aux
-You've used 7 entries,
-            0 wiz_defined-function locations,
-            90 strings with 510 characters,
-and the built_in function-call counts, 0 in all, are:
-=======
-The style file: IEEEtran.bst
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
+The style file: ieeetr.bst
 Database file #1: references.bib
 Warning--I didn't find a database entry for "b7"
--- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
--- http://www.michaelshell.org/tex/ieeetran/bibtex/
--- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
-
-Done.
-You've used 0 entries,
-            4087 wiz_defined-function locations,
-            822 strings with 7303 characters,
-and the built_in function-call counts, 104 in all, are:
->>>>>>> 4310d905375be9100d410c879fcb36ac97cfc37b
-= -- 0
-> -- 0
+Warning--I didn't find a database entry for "b1"
+Warning--I didn't find a database entry for "b2"
+Warning--I didn't find a database entry for "b3"
+Warning--I didn't find a database entry for "b4"
+Warning--I didn't find a database entry for "b5"
+Warning--I didn't find a database entry for "b6"
+You've used 2 entries,
+            1876 wiz_defined-function locations,
+            499 strings with 3898 characters,
+and the built_in function-call counts, 645 in all, are:
+= -- 69
+> -- 19
 < -- 0
-+ -- 0
-- -- 0
-<<<<<<< HEAD
-* -- 0
-:= -- 0
-=======
-* -- 19
-:= -- 27
->>>>>>> 4310d905375be9100d410c879fcb36ac97cfc37b
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
++ -- 7
+- -- 5
+* -- 49
+:= -- 95
+add.period$ -- 2
+call.type$ -- 2
+change.case$ -- 2
 chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-<<<<<<< HEAD
-empty$ -- 0
-format.name$ -- 0
-if$ -- 0
+cite$ -- 2
+duplicate$ -- 30
+empty$ -- 54
+format.name$ -- 5
+if$ -- 153
 int.to.chr$ -- 0
-int.to.str$ -- 0
-missing$ -- 0
-newline$ -- 0
-num.names$ -- 0
-pop$ -- 0
-preamble$ -- 0
-purify$ -- 0
-quote$ -- 0
-skip$ -- 0
-=======
-empty$ -- 1
-format.name$ -- 0
-if$ -- 3
-int.to.chr$ -- 0
-int.to.str$ -- 0
-missing$ -- 0
-newline$ -- 23
-num.names$ -- 0
-pop$ -- 0
+int.to.str$ -- 2
+missing$ -- 2
+newline$ -- 9
+num.names$ -- 2
+pop$ -- 2
 preamble$ -- 1
 purify$ -- 0
-quote$ -- 2
-skip$ -- 1
->>>>>>> 4310d905375be9100d410c879fcb36ac97cfc37b
+quote$ -- 0
+skip$ -- 28
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
+substring$ -- 56
+swap$ -- 16
 text.length$ -- 0
 text.prefix$ -- 0
-<<<<<<< HEAD
 top$ -- 0
-=======
-top$ -- 5
->>>>>>> 4310d905375be9100d410c879fcb36ac97cfc37b
 type$ -- 0
 warning$ -- 0
-while$ -- 0
-width$ -- 0
-<<<<<<< HEAD
-write$ -- 0
-(There were 2 error messages)
-=======
+while$ -- 8
+width$ -- 3
 write$ -- 22
-(There was 1 warning)
->>>>>>> 4310d905375be9100d410c879fcb36ac97cfc37b
+(There were 7 warnings)
