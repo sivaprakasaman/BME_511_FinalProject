@@ -1,5 +1,17 @@
 \begin{thebibliography}{1}
 
+\bibitem{bidelman_enhanced_2011}
+G.~M. Bidelman, A.~Krishnan, and J.~T. Gandour, ``Enhanced brainstem encoding
+  predicts musicians’ perceptual advantages with pitch,'' {\em European
+  Journal of Neuroscience}, vol.~33, no.~3, pp.~530--538, 2011.
+\newblock \_eprint:
+  https://onlinelibrary.wiley.com/doi/pdf/10.1111/j.1460-9568.2010.07527.x.
+
+\bibitem{heng_impaired_2011}
+J.~Heng, G.~Cantarero, M.~Elhilali, and C.~J. Limb, ``Impaired perception of
+  temporal fine structure and musical timbre in cochlear implant users,'' {\em
+  Hearing Research}, vol.~280, pp.~192--200, Oct. 2011.
+
 \bibitem{smith_chimaeric_2002}
 Z.~M. Smith, B.~Delgutte, and A.~J. Oxenham, ``Chimaeric sounds reveal
   dichotomies in auditory perception,'' {\em Nature}, vol.~416, pp.~87--90,
@@ -7,8 +19,28 @@ Z.~M. Smith, B.~Delgutte, and A.~J. Oxenham, ``Chimaeric sounds reveal
 
 \bibitem{heinz_quantifying_2009}
 M.~G. Heinz and J.~Swaminathan, ``Quantifying envelope and fine-structure
-  coding in auditory nerve responses to chimaeric speech,'' {\em Journal of the
-  Association for Research in Otolaryngology: JARO}, vol.~10, pp.~407--423,
-  Sept. 2009.
+  coding in auditory nerve responses to chimaeric speech,'' {\em J Assoc Res
+  Otolaryngol}, vol.~10, pp.~407--423, Sept. 2009.
+
+\bibitem{parida_spectrally_2020}
+S.~Parida, H.~Bharadwaj, and M.~G. Heinz, ``Spectrally specific temporal
+  analyses of spike-train responses to complex sounds: {A} unifying
+  framework,'' {\em bioRxiv}, p.~2020.07.17.208330, July 2020.
+\newblock Publisher: Cold Spring Harbor Laboratory Section: New Results.
+
+\bibitem{bruce_phenomenological_2018}
+I.~C. Bruce, Y.~Erfani, and M.~S.~A. Zilany, ``A phenomenological model of the
+  synapse between the inner hair cell and auditory nerve: {Implications} of
+  limited neurotransmitter release sites,'' {\em Hearing Research}, vol.~360,
+  pp.~40--54, Mar. 2018.
+
+\bibitem{lee_timbre_2020}
+H.~Lee and D.~Müllensiefen, ``The {Timbre} {Perception} {Test} ({TPT}): {A}
+  new interactive musical assessment tool to measure timbre perception
+  ability,'' {\em Atten Percept Psychophys}, vol.~82, no.~7, pp.~3658--3675,
+  2020.
+
+\bibitem{noauthor_sound_nodate}
+``Sound samples - https://philharmonia.co.uk/resources/sound-samples/.''
 
 \end{thebibliography}
