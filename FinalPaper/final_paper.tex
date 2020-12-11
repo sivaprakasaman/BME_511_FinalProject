@@ -8,6 +8,7 @@
 \usepackage{textcomp}
 \usepackage{xcolor}
 \usepackage{float}
+\usepackage{hyperref}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \graphicspath{{./Figures/}}    
@@ -92,7 +93,7 @@ A framework was developed to investigate timbral coding using a combination of a
 All sound stimuli were acquired from the Philharmonia Orchestra's (UK) sound sample database \cite{noauthor_sound_nodate}. This sound sample library has thousands of neatly categorized and concise recordings that span the instrumental range of the standard orchestra, over several pitches, articulations, and expressions. The sound samples were resampled in MATLAB (Natick, MA) to 100 kHz in order to be processed by the auditory nerve model. To assess timbral coding variations between instruments, banjo, clarinet, flute, trombone, and violin A4 (440 Hz) tones were used. To assess differences in timbral coding between articulation, a martel\'{e} and spiccato sound at A4 on the violin was used. 
 
 \subsection{Auditory Nerve Model}
-The BEZ2018 model was used to generate spike histograms in response to both positive and negative polarities of the stimuli. Auditory neurons with characteristic frequencies (CFs) at 125, 440, 880, 3960 Hz were included in this simulation. In the normal hearing model, sound was played at 65 dB. The hearing-impaired condition had an average threshold shift of 43.75 dB, and this gain was added to the stimulus for a total stimulus gain of 108.75 dB. The outputs of this model were normal hearing and impaired hearing alternating-polarity peristumulus time histograms (apPSTHs) for a given stimulus, shown in Figure \ref{fig:apPSTH}. \textcolor{red}{model parameters in table?}   
+The BEZ2018 model was used to generate spike histograms in response to both positive and negative polarities of the stimuli. Auditory neurons with characteristic frequencies (CFs) at 125, 440, 880, 3960 Hz were included in this simulation. In the normal hearing model, sound was played at 65 dB. The hearing-impaired condition had an average threshold shift of 43.75 dB, and this gain was added to the stimulus for a total stimulus gain of 108.75 dB. The outputs of this model were normal hearing and impaired hearing alternating-polarity peristumulus time histograms (apPSTHs) for a given stimulus, shown in Figure \ref{fig:apPSTH}. See Table \ref{tab1} for model parameters.
 
 \subsection{Stimulus Filtering and Hilbert Extraction}
 
@@ -156,19 +157,20 @@ Additionally, differences were observed in ENV coherence of violin-specific attr
 \label{viol_env}
 \end{figure} 
 
-\begin{figure}[h]
-\includegraphics[width = .5\textwidth]{martele_ENV_diff}
-\caption{Hearing impairment markedly decreases ENV coherence of martel\'{e} at CF = 3960 Hz. }
-\label{mart_env}
-\end{figure} 
+
 
 \subsection{Timbral Coding of Articulation}
 
-Martel\'{e} and spiccato also indicated differences in ENV coherence at CF = 3960. Figure \ref{mart_env} demonstrates hearing impairment particularly decreasing ENV coherence of martel\'{e} in the 6-30 Hz region. This difference in ENV coherence was not apparent in ENV coherence of spiccato at the same CF, shown in Figure \ref{spic_mart_diff}. These finding may indicate that ENV coding is particularly important in conveying timbral information related to martel\'{e}, but that this ENV coding is less important or relevant in the coding of spiccato. This may also indicate that hearing impaired listeners should more easily be able to discern ``bouncier" articulations like spiccato, as opposed to heavier articulations like martel\'{e}. 
+Martel\'{e} and spiccato also indicated differences in ENV coherence at CF = 3960. Figure \ref{mart_env} demonstrates hearing impairment particularly decreasing ENV coherence of martel\'{e} in the 4-60 Hz region. This difference in ENV coherence was not apparent in ENV coherence of spiccato at the same CF, shown in Figure \ref{spic_mart_diff}. These finding may indicate that ENV coding is particularly important in conveying timbral information related to martel\'{e}, but that this ENV coding is less important or relevant in the coding of spiccato. This may also indicate that hearing impaired listeners should more easily be able to discern ``bouncier" articulations like spiccato, as opposed to heavier articulations like martel\'{e}. 
+\begin{figure}[h]
+\includegraphics[width = .5\textwidth]{martele_ENV_diff}
+\caption{Hearing impairment markedly decreases ENV coherence of martel\'{e} at CF = 3960 Hz in the 4-60 Hz region.. }
+\label{mart_env}
+\end{figure} 
 
 \begin{figure}[h]
 \includegraphics[width = .5\textwidth]{martele_spiccato_ENV_3960}
-\caption{Hearing impairment differentially impacts martel\'{e} and spiccato ENV coherence of frequencies in the 6-30 Hz region.}
+\caption{Hearing impairment differentially impacts martel\'{e} (\textcolor{blue}{blue}) and spiccato (black) ENV coherence of frequencies in the 4-60 Hz region.}
 \label{spic_mart_diff}
 \end{figure} 
 
@@ -189,33 +191,54 @@ Finally, the spectral analysis conducted shows much variance. It is difficult to
 \subsection{Future Study}
 The framework outlined in this paper demonstrates progress towards a means of analyzing timbre coding by the auditory periphery. The analysis presented extends beyond the assessment of the BEZ2018 auditory nerve model output, and can be applied \textit{in vivo}. However, a better characterization of the timbral features present in the stimuli and a cleaner, more true, estimate of the coherence spectra are essential before progressing to such experimentation. After that, timbral coding can be better characterized and will hopefully lead to hearing aid and cochlear implant signal processing that better encapulate music features.
 
-%\begin{table}[htbp]
-%\caption{Table Type Styles}
-%\begin{center}
-%\begin{tabular}{|c|c|c|c|}
-%\hline
-%\textbf{Table}&\multicolumn{3}{|c|}{\textbf{Table Column Head}} \\
-%\cline{2-4} 
-%\textbf{Head} & \textbf{\textit{Table column subhead}}& \textbf{\textit{Subhead}}& \textbf{\textit{Subhead}} \\
-%\hline
-%copy& More table copy$^{\mathrm{a}}$& &  \\
-%\hline
-%\multicolumn{4}{l}{$^{\mathrm{a}}$Sample of a Table footnote.}
-%\end{tabular}
-%\label{tab1}
-%\end{center}
-%\end{table}
-%
-%\begin{figure}[htbp]
-%\centerline{\includegraphics{fig1.png}}
-%\caption{Example of a figure caption.}
-%\label{fig}
-%\end{figure}
 
+
+\newpage
 
 \section*{Acknowledgment}
 
 Without my family, music instructors, and teachers I would not have been so motivated to study the relevance of music in auditory neuroscience. Additionally, without the support and wisdom from Dr. Satya Parida (and however many coconuts he has sacrificed to the Gods of auditory neuroscience), this project would have been much more challenging. Finally, the feedback received by the Heinz Lab on Tuesday has made it clearer what the next steps in this project should be.
+
+\begin{table}[htbp]
+\caption{BEZ2018 Model Parameters}
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Parameter}&{\textbf{Value}} \\
+\hline
+\hline
+Repetitions per CF & 75\\
+\hline
+Spontaneous Rate & 70\\
+\hline
+Absolute Refractory Period & 0.6 ms \\ 
+\hline
+Baseline Mean Relative Refractory Period & 0.6 ms\\
+\hline
+OHC \& IHC Health & 1.0$^{\mathrm{a}}$\\
+\hline
+Species & 3 (Shera Tuning)\\
+\hline
+Fractional Gaussian Noise Type & 0\\
+\hline
+Power-law functions & 0\\
+\hline
+Spike-time resolution & 10 $\mu$ s\\
+\hline
+\multicolumn{2}{l}{$^{\mathrm{a}}$Set by fitaudiogram2 in hearing impaired condition.}
+\end{tabular}
+\label{tab1}
+\end{center}
+\end{table}
+
+
+
+
+\section*{Code}
+The code used in this project may be found \href{https://github.com/sivaprakasaman/BME_511_FinalProject}{\textcolor{blue}{here}}.
+
+
+
 
 %\section*{References}
 
@@ -225,5 +248,6 @@ Without my family, music instructors, and teachers I would not have been so moti
 %\bibliographystyle{IEEEtran} 
 
 \bibliography{references}{}
+
 
 \end{document}
