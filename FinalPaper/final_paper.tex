@@ -164,22 +164,30 @@ Additionally, differences were observed in ENV coherence of violin-specific attr
 
 \subsection{Timbral Coding of Articulation}
 
-Martel\'{e} and spiccato also showed differences in ENV coherence at CF = 3960. Figure \ref{mart_env} demonstrates hearing impairment particularly decreasing ENV coherence of martel\'{e} in the 6-30 Hz region. This difference in ENV coherence was not apparent in ENV coherence of spiccato at the same CF, shown in Figure . These finding may indicate that ENV coding is particularly important in conveying timbral information related to martel\'{e}, but that this ENV coding is less important or relevant in the coding of spiccato. This may also indicate that hearing impaired listeners should more easily be able to discern ``bouncier" articulations like spiccato, as opposed to heavier articulations like martel\'{e}. 
+Martel\'{e} and spiccato also indicated differences in ENV coherence at CF = 3960. Figure \ref{mart_env} demonstrates hearing impairment particularly decreasing ENV coherence of martel\'{e} in the 6-30 Hz region. This difference in ENV coherence was not apparent in ENV coherence of spiccato at the same CF, shown in Figure \ref{spic_mart_diff}. These finding may indicate that ENV coding is particularly important in conveying timbral information related to martel\'{e}, but that this ENV coding is less important or relevant in the coding of spiccato. This may also indicate that hearing impaired listeners should more easily be able to discern ``bouncier" articulations like spiccato, as opposed to heavier articulations like martel\'{e}. 
 
 \begin{figure}[h]
 \includegraphics[width = .5\textwidth]{martele_spiccato_ENV_3960}
 \caption{Hearing impairment differentially impacts martel\'{e} and spiccato ENV coherence of frequencies in the 6-30 Hz region.}
-\label{mart_env}
+\label{spic_mart_diff}
 \end{figure} 
 
 \section{Discussion}
+While this work is still preliminary, it has demonstrated the potential of using spectrally-specific measures to investigate ENV and TFS in timbral coding, while also highlighting some of the issues that may arise in future studies of timbre. 
 
+\subsection{Coding of Timbral ENV/TFS Features} 
 
+The data presented in this project indicate that the TFS/ENV coherence spectra vary from instrument to instrument, perhaps indicating that the auditory periphery is capable of representing and ``locking" onto timbral differences present between different instruements, even if they are playing the same tone. Additionally, the coherence spectra vary depending on the CF of the neuron. Impaired hearing may or may not result in variations in the coherence of certain timbral features, depending on the instrument or articulation being studied. 
+  
+\subsection{Limitations}
+This project included a limited spectral analysis of the stimuli. It is evident from the uncertainty in significance or relevance present in some of the features observed in the coherence spectra. For example, it currently is unknown why a 490 Hz peak is present in the trombone coherence spectra found in Figure \ref{tromb_viol}. Additionally, it is uncertain what is resulting in the high envelope coherence in normal hearing auditory responses to the violin seen in Figure \ref{viol_env}. One may speculate that this is due to the modulation characteristics seen in the violin spectrogram shown in Figure \ref{fig:spects}. However, this speculation must be confirmed with a more thorough stimulus analysis. More closely looking at the Hilbert ENV of the stimuli or taking the spectrum of a half-wave rectification may provide more insight as to how ENV features vary from instrument to instrument before auditory processing. Another good assessment of timbral differences between instruments could be looking at timbral coherence between the stimuli themselves instead of timbral coherence of ENV and TFS between neural responses and the Hilbert ENV and TFS. 
 
+Additionally, there are modeling parameters that should be altered in future investigation. Compensating gain for the full amount of hearing loss resulted in 108.75 dB is unrealistic and likely painful in a subject with an average of 43.75 dB hearing loss. A more realistic gain compensation would be adding half that amount or the amount needed to get a similar driven rate to the normal hearing condition. Figure \ref{fig:apPSTH} demonstrates the higher firing rate in the impaired hearing neuron, which is likely due to this unrealistic stimulus amplification.  
 
+Finally, the spectral analysis conducted shows much variance. It is difficult to discern whether the observed coherence differences are due to variance in the estimation or whether they are part of the true coherence spectra. Because of this, it may be worth using a multi-tapered coherence spectra, similar to that conducted in a study by Viswanathan et al. \cite{viswanathan_electroencephalographic_2019}. 
 
-
-
+\subsection{Future Study}
+The framework outlined in this paper demonstrates progress towards a means of analyzing timbre coding by the auditory periphery. The analysis presented extends beyond the assessment of the BEZ2018 auditory nerve model output, and can be applied \textit{in vivo}. However, a better characterization of the timbral features present in the stimuli and a cleaner, more true, estimate of the coherence spectra are essential before progressing to such experimentation. After that, timbral coding can be better characterized and will hopefully lead to hearing aid and cochlear implant signal processing that better encapulate music features.
 
 %\begin{table}[htbp]
 %\caption{Table Type Styles}
@@ -207,9 +215,9 @@ Martel\'{e} and spiccato also showed differences in ENV coherence at CF = 3960. 
 
 \section*{Acknowledgment}
 
+Without my family, music instructors, and teachers I would not have been so motivated to study the relevance of music in auditory neuroscience. Additionally, without the support and wisdom from Dr. Satya Parida (and however many coconuts he has sacrificed to the Gods of auditory neuroscience), this project would have been much more challenging. Finally, the feedback received by the Heinz Lab on Tuesday has made it clearer what the next steps in this project should be.
 
-
-\section*{References}
+%\section*{References}
 
 
 \bibliographystyle{ieeetr}

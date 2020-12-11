@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{bidelman_enhanced_2011}
 G.~M. Bidelman, A.~Krishnan, and J.~T. Gandour, ``Enhanced brainstem encoding
@@ -45,5 +45,11 @@ H.~Lee and D.~Müllensiefen, ``The {Timbre} {Perception} {Test} ({TPT}): {A}
 
 \bibitem{ma_efficient_nodate}
 N.~Ma, ``An {Efficient} {Implementation} of {Gammatone} {Filters}.''
+
+\bibitem{viswanathan_electroencephalographic_2019}
+V.~Viswanathan, H.~M. Bharadwaj, and B.~G. Shinn-Cunningham,
+  ``Electroencephalographic {Signatures} of the {Neural} {Representation} of
+  {Speech} during {Selective} {Attention},'' {\em eNeuro}, vol.~6, Sept. 2019.
+\newblock Publisher: Society for Neuroscience Section: New Research.
 
 \end{thebibliography}
